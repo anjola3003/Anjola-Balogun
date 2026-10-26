@@ -6,6 +6,14 @@
 <title>Anjola Balogun | Finance, Audit & Analytics</title>
 <meta name="description" content="Anjola Balogun is a finance and analytics professional focused on financial data and controls, with an accounts payable and audit background and an MBA in Business Analytics. Open the case files, try the invoice audit lab, or watch a page re-check its own numbers.">
 <meta name="theme-color" content="#FFF9F3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anjola Balogun | Finance, Audit &amp; Analytics">
+<meta property="og:description" content="Finance and analytics professional with an AP and audit background and an MBA in Business Analytics. Try the invoice audit lab or browse my projects.">
+<meta property="og:url" content="https://anjola3003.github.io/anjola-portfolio/">
+<meta property="og:image" content="https://anjola3003.github.io/anjola-portfolio/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://anjola3003.github.io/anjola-portfolio/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237C2440'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-style='italic' text-anchor='middle' fill='%23FFF9F3'%3EAB%3C/text%3E%3C/svg%3E">
 <script>document.documentElement.className="js";</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -390,7 +398,7 @@ h2{font-size:1.7rem;letter-spacing:-.025em}
   .cbar .t{font-size:.66rem}
   .cx{font-size:.7rem}
 }
-@media (max-width:560px){.top nav{display:none}.logo{white-space:nowrap}}
+@media (max-width:560px){.top .wrap{flex-wrap:wrap;padding-block:8px;gap:2px}.top nav{width:100%;justify-content:space-between;flex-wrap:nowrap}.top nav a{padding:6px 7px;font-size:.84rem}.top nav a.navcv{margin-left:0}.logo{white-space:nowrap}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation:none !important;transition:none !important}
@@ -504,6 +512,33 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
   .can-drag .ccard.rcpt,.can-drag .skr{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpolygon points=%227.9,20.4 18.8,8.6 23.4,13.2 11.6,24.1%22 fill=%22%237c2440%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%226.0,22.7 7.9,20.4 11.6,24.1 9.3,26.0%22 fill=%22%23e2c26a%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%222.0,30.0 6.0,22.7 9.3,26.0%22 fill=%22%232a2224%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2218.7,8.5 20.8,6.4 25.6,11.2 23.5,13.3%22 fill=%22%23e2c26a%22/%3E%3C/svg%3E") 2 30,grab}
   .rcpt.drag{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpolygon points=%227.9,20.4 18.8,8.6 23.4,13.2 11.6,24.1%22 fill=%22%237c2440%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%226.0,22.7 7.9,20.4 11.6,24.1 9.3,26.0%22 fill=%22%23e2c26a%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%222.0,30.0 6.0,22.7 9.3,26.0%22 fill=%22%232a2224%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2218.7,8.5 20.8,6.4 25.6,11.2 23.5,13.3%22 fill=%22%23e2c26a%22/%3E%3Ccircle cx=%222.4%22 cy=%2229.6%22 r=%222.4%22 fill=%22%23b3243f%22/%3E%3C/svg%3E") 2 30,grabbing}
 }
+/* ===== lab control desk ===== */
+.desk{position:fixed;z-index:40;right:max(14px,calc((100vw - 1180px)/2 + 14px));top:96px;width:224px;background:linear-gradient(180deg,#8d3350,#6e1f3a 24%,#43101f);border-radius:16px;padding:12px;box-shadow:0 16px 30px #5a102744;display:none}
+.view.on .desk{display:block}
+.dkhead{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;color:#f4dfa0;margin:0 2px 8px}
+.dkread{background:#1d0b12;border-radius:8px;padding:8px 10px;font-family:var(--mono);font-size:.74rem;line-height:1.4;color:#f6d9a0;box-shadow:inset 0 3px 8px #000a;min-height:3.6em}
+.dkread span{display:block}.dkread span+span{margin-top:4px;color:#9ee6b0}
+.dkbtns{display:grid;gap:8px;margin-top:10px}
+.dk{appearance:none;font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 8px;cursor:pointer;border-bottom:4px solid transparent;transition:transform .08s,border-bottom-width .08s}
+.dk:active{transform:translateY(3px);border-bottom-width:1px}
+.dk-run{background:linear-gradient(180deg,#e56b7c,#c0283f);border-bottom-color:#7c1325;color:#fff}
+.dk-reset{background:linear-gradient(180deg,#fffdf9,#efe2e3);border-bottom-color:#c9b2b6;color:#2A2224}
+.dk-tie{background:linear-gradient(180deg,#f4dfa0,#d9b45a);border-bottom-color:#a67c28;color:#2A2224}
+.dk:disabled{opacity:.6;cursor:progress}
+@media (max-width:1179px){
+  .desk{left:0;right:0;top:auto;bottom:0;width:auto;border-radius:16px 16px 0 0;padding:8px 12px calc(10px + env(safe-area-inset-bottom));display:none}
+  .view.on .desk{display:block}
+  .dkhead{display:none}
+  .dkread{min-height:0;padding:6px 10px;font-size:.7rem}
+  .dkread span:nth-child(2){display:none}
+  .dkbtns{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:6px}
+  .dk{padding:9px 4px;font-size:.82rem}
+  #v-lab .vbody{padding-bottom:150px}
+}
+@media (prefers-reduced-motion:reduce){.dk{transition:none}}
+.psnd{appearance:none;border:0;border-radius:10px;background:#fffdf9;width:44px;height:34px;margin:6px 0 0 4px;cursor:pointer;font-size:1.05rem;border-bottom:4px solid #c9b2b6}
+.psnd[aria-pressed="false"]{opacity:.55;text-decoration:line-through}
+.top nav a.navcv{border:1.5px solid currentColor;margin-left:6px}
 </style>
 </head>
 <body>
@@ -514,10 +549,11 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
   <div class="wrap">
     <a class="logo" href="#home">Anjola Balogun</a>
     <nav aria-label="Main">
-      <a href="#cases" data-nav="cases">Case files</a>
-      <a href="#background" data-nav="background">Notes</a>
+      <a href="#cases" data-nav="cases">Projects</a>
+      <a href="#background" data-nav="background">About</a>
       <a href="#evidence" data-nav="evidence">Skills</a>
-      <a href="#contact" data-nav="contact">Sign-off</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+      <a class="navcv" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
     </nav>
   </div>
 </header>
@@ -534,7 +570,7 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
           <p class="lede">I'm Anjola, a finance and analytics professional focused on financial data and controls. I came up through accounts payable and audit support, then added an MBA in Business Analytics. I check the numbers, then say what to do about them.</p>
           <p class="quiet">Dallas, TX. Open to finance, audit, accounting, operations and analytics roles.</p>
           <div class="cta">
-            <a class="btn" href="#cases">Open the case files</a>
+            <a class="btn" href="#cases">See my projects</a>
             <a class="btn alt" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (PDF)</a>
           </div>
         </div>
@@ -572,13 +608,14 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
             <rect x="34" y="72" width="232" height="9" rx="4.5" fill="#12060b"/>
           </svg>
         </button>
+        <button class="psnd" id="psnd" type="button" aria-pressed="true" aria-label="Printer sound on">&#128266;</button>
         <div class="feed" id="feed"><div class="paper">
           <div class="prh">ANJOLA BALOGUN<small>TABLE OF CONTENTS</small></div>
           <ul class="index" id="pages" aria-label="Contents">
-            <li><a href="#cases"><span class="ref" aria-hidden="true">02</span><b>Case files</b><span class="d">An invoice audit lab you can play, and a retail profitability study</span></a></li>
+            <li><a href="#cases"><span class="ref" aria-hidden="true">02</span><b>Projects</b><span class="d">An invoice audit lab you can play, and a retail profitability study</span></a></li>
             <li><a href="#background"><span class="ref" aria-hidden="true">03</span><b>Notes from the analyst</b><span class="d">Accounts payable, audit support and an MBA</span></a></li>
             <li><a href="#evidence"><span class="ref" aria-hidden="true">03</span><b>Skills, with receipts</b><span class="d">Each skill, with where I used it</span></a></li>
-            <li><a href="#contact"><span class="ref" aria-hidden="true">04</span><b>Sign-off</b><span class="d">Say hello, or review my work</span></a></li>
+            <li><a href="#contact"><span class="ref" aria-hidden="true">04</span><b>Contact</b><span class="d">Say hello, or review my work</span></a></li>
           </ul>
           <div class="barcode"></div>
           <div class="ty" style="text-align:center;font-size:.68rem;letter-spacing:.12em;color:#6b5a5f;padding-bottom:10px">THANK YOU FOR READING</div>
@@ -589,13 +626,13 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
   </section>
 
   <!-- CASE FILES -->
-  <section class="view" id="v-cases" data-title="Case files | Anjola Balogun" aria-label="Case files">
+  <section class="view" id="v-cases" data-title="Projects | Anjola Balogun" aria-label="Projects">
     <div class="wrap">
       <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 02 / 04</span></div>
       <div class="vbody">
-        <h1 class="vt" id="h-cases" tabindex="-1">Case files</h1>
+        <h1 class="vt" id="h-cases" tabindex="-1">Projects <span class="pen" style="font-size:.5em">(case files)</span></h1>
         <p class="lede" style="font-size:1.15rem;margin-top:14px">Each one opens as a full case file: the question, the evidence, what I found and what I would do next.</p>
-        <div class="filters" id="cfilters" role="group" aria-label="Filter case files">
+        <div class="filters" id="cfilters" role="group" aria-label="Filter projects">
           <button type="button" data-f="all" aria-pressed="true">All</button>
           <button type="button" data-f="business" aria-pressed="false">Business analysis</button>
           <button type="button" data-f="data" aria-pressed="false">Data analysis</button>
@@ -614,7 +651,7 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
             <div class="ln"><span>FINDINGS</span><b>9</b></div>
             <div class="dash"></div>
             <div class="ln tt"><span>STATUS</span><b>COMPLETED</b></div>
-            <p class="note">Mark the invoices you think are wrong, then see what the checks find. Python script included.</p>
+            <p class="note"><b>Result:</b> 9 findings across 12 flagged invoices ($49,121, 38.7% of the ledger's value): duplicates, late payments and amounts just under an approval limit. Mark them yourself first, then see what the checks find.</p>
             <div class="barcode"></div>
             <a class="go" href="#lab">OPEN CASE FILE &rarr;</a>
           </article>
@@ -627,7 +664,7 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
             <div class="ln"><span>MARGIN</span><b>11.62%</b></div>
             <div class="dash"></div>
             <div class="ln tt"><span>STATUS</span><b>COMPLETED</b></div>
-            <p class="note">Where a retail business makes money and where it loses it. The page re-checks its own numbers when you ask it to.</p>
+            <p class="note"><b>Result:</b> Furniture outsold Office Supplies but earned less profit. Discounts of 30% or more lost money, and Tables was the only reviewed subcategory with a loss. The page re-checks its own numbers when you ask.</p>
             <div class="barcode"></div>
             <a class="go" href="#case">OPEN CASE FILE &rarr;</a>
           </article>
@@ -665,11 +702,21 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
 
   <!-- LAB -->
   <section class="view" id="v-lab" data-title="Invoice audit lab | Anjola Balogun" aria-label="Invoice audit lab">
+    <aside class="desk" role="group" aria-label="Lab controls">
+      <div class="dkhead">CONTROL DESK</div>
+      <div class="dkread" id="dk-read" aria-hidden="true"><span id="dk-a">Mark invoices, then run the checks.</span><span id="dk-b" hidden></span></div>
+      <div class="dkbtns">
+        <button class="dk dk-run" id="dk-run" type="button">Run the checks</button>
+        <button class="dk dk-reset" id="dk-reset" type="button">Start over</button>
+        <button class="dk dk-tie" id="dk-tie" type="button">Run the tie-out</button>
+      </div>
+    </aside>
     <div class="wrap">
-      <div class="vhead"><a class="back" href="#cases">Back to the case files</a><span class="pg" aria-hidden="true">case file 01</span></div>
+      <div class="vhead"><a class="back" href="#cases">Back to projects</a><span class="pg" aria-hidden="true">case file 01</span></div>
       <div class="vbody">
         <h1 class="vt" id="h-lab" tabindex="-1">Invoice audit lab: can you spot what the checks catch?</h1>
         <p class="lede" style="font-size:1.12rem;margin-top:18px">In accounts payable, three things are worth checking every cycle: duplicate invoices, invoices paid late, and amounts that sit just under an approval limit. Below is a made-up ledger of 47 invoices with problems hidden in it.</p>
+        <p class="lede" style="margin-top:12px"><b>Takes about 2 minutes.</b> Short on time? <a href="#case">Skip to the retail profitability study</a>, or <a href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">read my r&eacute;sum&eacute;</a>.</p>
         <p class="synth"><b>Synthetic data.</b> I generated this ledger for the demo. The vendors are fictional, and no employer or real vendor data is used.</p>
         <ol class="steps">
           <li><span class="ref" aria-hidden="true">1</span>Mark the invoices you think are wrong</li>
@@ -746,7 +793,7 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
   <!-- CASE FILE -->
   <section class="view" id="v-case" data-title="Superstore case file | Anjola Balogun" aria-label="Superstore case file">
     <div class="wrap">
-      <div class="vhead"><a class="back" href="#cases">Back to the case files</a><span class="pg" aria-hidden="true">case file 02</span></div>
+      <div class="vhead"><a class="back" href="#cases">Back to projects</a><span class="pg" aria-hidden="true">case file 02</span></div>
       <div class="vbody">
         <div class="layout">
           <div>
@@ -943,7 +990,7 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
     <div class="wrap">
       <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 03 / 04</span></div>
       <div class="vbody">
-        <h1 class="vt" id="h-background" tabindex="-1">Notes from the analyst</h1>
+        <h1 class="vt" id="h-background" tabindex="-1">About me <span class="pen" style="font-size:.5em">(notes from the analyst)</span></h1>
         <p class="lede" style="font-size:1.12rem;margin-top:18px">I studied economics, worked in accounts payable and audit support, then completed an MBA in Business Analytics. My focus is accuracy, process improvement and clear financial reporting.</p>
         <blockquote class="inmy" style="margin-left:0">Economics taught me to ask why numbers move. Accounts payable taught me to check them. Analytics is where I get to do both.<small>in my own words</small></blockquote>
 
@@ -990,11 +1037,11 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
   </section>
 
   <!-- CONTACT -->
-  <section class="view" id="v-contact" data-title="Sign-off | Anjola Balogun" aria-label="Sign-off">
+  <section class="view" id="v-contact" data-title="Contact | Anjola Balogun" aria-label="Contact">
     <div class="wrap">
       <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 04 / 04</span></div>
       <div class="vbody">
-        <h1 class="vt" id="h-contact" tabindex="-1">Sign-off</h1>
+        <h1 class="vt" id="h-contact" tabindex="-1">Contact <span class="pen" style="font-size:.5em">(sign-off)</span></h1>
         <p class="lede" style="font-size:1.12rem;margin-top:18px">I'm open to finance, audit, accounting, operations and analytics roles. Review the work, sign off below, and message me.</p>
         <div class="sign">
           <div class="line"><span>Prepared by</span><div class="field signed">Anjola Balogun</div></div>
@@ -1105,7 +1152,7 @@ function route(userNav){
 window.addEventListener("hashchange",function(){closeTk();route(true);});
 /* In sandboxed previews the address bar may not change, so open views directly on click. */
 document.addEventListener("click",function(e){
-  var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+  if(e.defaultPrevented) return; var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
   var n=a.getAttribute("href").slice(1);
   if(VIEWS.indexOf(n)<0) return;
   e.preventDefault(); closeTk();
@@ -1395,8 +1442,35 @@ $("#run").addEventListener("click",function(){runTie($("#run"),$("#tie-summary")
 
 /* ---------- home: the printer prints the contents ---------- */
 (function(){
-  var btn=$("#pen"), feed=$("#feed"), lab=$("#penlabel"), on=false;
+  var btn=$("#pen"), feed=$("#feed"), lab=$("#penlabel"), on=false, sound=true, ctx=null, snd=$("#psnd");
+  try{ if(localStorage.getItem("psound")==="off") sound=false; }catch(e){}
+  function paintSnd(){snd.setAttribute("aria-pressed",String(sound));snd.setAttribute("aria-label",sound?"Printer sound on":"Printer sound off");}
+  paintSnd();
+  snd.addEventListener("click",function(){sound=!sound;paintSnd();try{localStorage.setItem("psound",sound?"on":"off");}catch(e){}});
+  function printSound(opening){
+    if(!sound) return;
+    try{
+      ctx=ctx||new (window.AudioContext||window.webkitAudioContext)(); var t=ctx.currentTime;
+      var master=ctx.createGain(); master.gain.value=.5; master.connect(ctx.destination);
+      var n=opening?16:4, step=opening?.075:.05;
+      var buf=ctx.createBuffer(1,ctx.sampleRate*.05,ctx.sampleRate), d=buf.getChannelData(0);
+      for(var i=0;i<d.length;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,1.5);
+      for(var k=0;k<n;k++){
+        var s=ctx.createBufferSource(); s.buffer=buf;
+        var bp=ctx.createBiquadFilter(); bp.type="bandpass"; bp.frequency.value=opening?(1800+(k%3)*500):1400; bp.Q.value=1.4;
+        var g=ctx.createGain(); g.gain.value=opening?.5:.35;
+        s.connect(bp).connect(g).connect(master); s.start(t+k*step);
+      }
+      var o=ctx.createOscillator(), og=ctx.createGain(); o.type="sawtooth"; o.frequency.setValueAtTime(opening?70:110,t); o.frequency.linearRampToValueAtTime(opening?95:60,t+n*step);
+      og.gain.setValueAtTime(.0001,t); og.gain.linearRampToValueAtTime(.07,t+.05); og.gain.linearRampToValueAtTime(.0001,t+n*step+.05);
+      o.connect(og).connect(master); o.start(t); o.stop(t+n*step+.1);
+      if(opening){ var b=ctx.createOscillator(), bg=ctx.createGain(); b.type="sine"; b.frequency.value=1760; var bt=t+n*step+.08;
+        bg.gain.setValueAtTime(0,bt); bg.gain.linearRampToValueAtTime(.12,bt+.01); bg.gain.exponentialRampToValueAtTime(.0001,bt+.35);
+        b.connect(bg).connect(master); b.start(bt); b.stop(bt+.4); }
+    }catch(e){}
+  }
   function set(v){
+    if(v!==on) printSound(v);
     on=v; btn.setAttribute("aria-expanded",String(v)); feed.classList.toggle("open",v);
     lab.textContent=v?"tear off a page":"press print for the contents";
     btn.setAttribute("aria-label",v?"Close the contents":"Print the contents");
@@ -1517,6 +1591,26 @@ var FORMSPREE_URL="https://formspree.io/f/mrpppbyl"; /* paste your Formspree for
         btn.disabled=false;btn.textContent="Sign and send";
       });
   });
+})();
+
+/* lab control desk: mirrors the page controls so they stay in reach while scrolling */
+(function(){
+  var pairs=[["lab-run","dk-run"],["lab-reset","dk-reset"],["lab-tie","dk-tie"]];
+  var score=$("#lab-score"), tie=$("#lab-tie-summary"), ra=$("#dk-a"), rb=$("#dk-b");
+  pairs.forEach(function(p){
+    var src=$("#"+p[0]), dst=$("#"+p[1]);
+    dst.addEventListener("click",function(){src.click();});
+    function sync(){dst.disabled=src.disabled;dst.textContent=src.textContent;}
+    new MutationObserver(sync).observe(src,{attributes:true,childList:true,characterData:true,subtree:true}); sync();
+  });
+  function readout(){
+    var m=/You marked (\d+)\..*?(\d+) findings?.*?caught (\d+)/.exec(score.textContent||"");
+    ra.textContent=m?("Marked "+m[1]+" | "+m[2]+" findings | caught "+m[3]):"Mark invoices, then run the checks.";
+    if(!tie.hidden&&tie.textContent){rb.hidden=false;rb.textContent=tie.textContent.split(". Click")[0];}else{rb.hidden=true;}
+  }
+  new MutationObserver(readout).observe(score,{childList:true,characterData:true,subtree:true});
+  new MutationObserver(readout).observe(tie,{childList:true,characterData:true,subtree:true,attributes:true});
+  readout();
 })();
 route(false);
 })();
