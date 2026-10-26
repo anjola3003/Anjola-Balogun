@@ -465,6 +465,45 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
 .cgrid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:880px}
 @media (max-width:620px){.cgrid{grid-template-columns:1fr}}
 @media (min-width:1000px){.cgrid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}}
+/* ===== the receipt printer ===== */
+.printer{margin-top:clamp(24px,4vw,40px);max-width:560px}
+.prbtn{appearance:none;background:none;border:0;padding:4px;cursor:pointer;display:block;text-align:left;font:inherit;border-radius:14px}
+.penlabel{display:block;font-family:var(--pen);font-weight:600;font-size:1.5rem;color:var(--red);line-height:1;margin:0 0 6px 8px;rotate:-1.5deg}
+.pdev{width:min(300px,80vw);height:auto;display:block;filter:drop-shadow(0 10px 14px #5a102733);transition:translate .2s}
+.pdev .led{animation:blink 1.8s ease-in-out infinite}
+@keyframes blink{50%{opacity:.35}}
+.pdev .pbt{transition:fill .2s}
+.prbtn:hover .pdev{translate:0 -2px}
+.prbtn:active .pdev,.prbtn[aria-expanded="true"] .pdev{translate:0 1px}
+.prbtn[aria-expanded="true"] .pbt{fill:#8f1b2e}
+.feed{margin:-9px 0 0 28px;width:min(500px,calc(100% - 28px))}
+.js .feed{overflow:hidden;max-height:0;transition:max-height 1.1s cubic-bezier(.3,.7,.3,1)}
+.js .feed.open{max-height:760px}
+.paper{background:#FFFEFA;font-family:var(--mono);color:#2A2224;box-shadow:0 14px 34px #5a102718;padding:16px 12px 0}
+.js .paper{transform:translateY(-102%);transition:transform 1.1s cubic-bezier(.3,.7,.3,1)}
+.js .feed.open .paper{transform:none}
+.prh{text-align:center;font-weight:600;letter-spacing:.1em;font-size:.95rem;padding:0 0 10px;border-bottom:2px dashed #cdb8bd}
+.prh small{display:block;font-weight:400;font-size:.68rem;letter-spacing:.12em;color:#6b5a5f;margin-top:3px}
+.paper .index{margin:0;padding:0;border:0;max-width:none;list-style:none}
+.paper .index a{display:grid;grid-template-columns:34px minmax(0,1fr);gap:2px 10px;align-items:baseline;padding:12px 6px;border-bottom:2px dashed #cdb8bd;color:#2A2224;text-decoration:none}
+.paper .index a:hover,.paper .index a:focus-visible{background:var(--hi)}
+.paper .index .ref{font-family:var(--mono);font-size:1rem;transform:none;rotate:0deg;color:var(--red);font-weight:600}
+.paper .index b{font-family:var(--mono);font-weight:600;font-size:1rem;letter-spacing:.04em;text-transform:uppercase}
+.paper .index .d{grid-column:2;font-family:var(--sans);font-size:.85rem;color:var(--mute)}
+.paper .barcode{margin:14px 6px 8px}
+.zig{height:14px;margin:0 -12px;background:linear-gradient(135deg,#FFFEFA 50%,transparent 50%) 0 0/16px 14px,linear-gradient(225deg,#FFFEFA 50%,transparent 50%) 0 0/16px 14px}
+.zig{height:14px}
+@media (prefers-reduced-motion:reduce){.js .feed,.js .paper{transition:none}.pdev .led{animation:none}}
+
+.rc .ln.tt span{white-space:nowrap}.rc .ln.tt b{font-size:.74rem;white-space:nowrap}.stamp{bottom:46px}
+/* ===== pen cursor ===== */
+@media (pointer:fine){
+  body{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpolygon points=%227.9,20.4 18.8,8.6 23.4,13.2 11.6,24.1%22 fill=%22%237c2440%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%226.0,22.7 7.9,20.4 11.6,24.1 9.3,26.0%22 fill=%22%23e2c26a%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%222.0,30.0 6.0,22.7 9.3,26.0%22 fill=%22%232a2224%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2218.7,8.5 20.8,6.4 25.6,11.2 23.5,13.3%22 fill=%22%23e2c26a%22/%3E%3C/svg%3E") 2 30,auto}
+  a,button,summary,label,select,[role=button],input[type=range],input[type=checkbox],.tk,.mk,.penpen,.prbtn,.filters button{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpolygon points=%227.9,20.4 18.8,8.6 23.4,13.2 11.6,24.1%22 fill=%22%237c2440%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%226.0,22.7 7.9,20.4 11.6,24.1 9.3,26.0%22 fill=%22%23e2c26a%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%222.0,30.0 6.0,22.7 9.3,26.0%22 fill=%22%232a2224%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2218.7,8.5 20.8,6.4 25.6,11.2 23.5,13.3%22 fill=%22%23e2c26a%22/%3E%3Ccircle cx=%222.4%22 cy=%2229.6%22 r=%222.4%22 fill=%22%23b3243f%22/%3E%3C/svg%3E") 2 30,pointer}
+  input[type=text],input[type=email],textarea{cursor:text}
+  .can-drag .ccard.rcpt,.can-drag .skr{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpolygon points=%227.9,20.4 18.8,8.6 23.4,13.2 11.6,24.1%22 fill=%22%237c2440%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%226.0,22.7 7.9,20.4 11.6,24.1 9.3,26.0%22 fill=%22%23e2c26a%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%222.0,30.0 6.0,22.7 9.3,26.0%22 fill=%22%232a2224%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2218.7,8.5 20.8,6.4 25.6,11.2 23.5,13.3%22 fill=%22%23e2c26a%22/%3E%3C/svg%3E") 2 30,grab}
+  .rcpt.drag{cursor:url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2232%22 height=%2232%22 viewBox=%220 0 32 32%22%3E%3Cpolygon points=%227.9,20.4 18.8,8.6 23.4,13.2 11.6,24.1%22 fill=%22%237c2440%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%226.0,22.7 7.9,20.4 11.6,24.1 9.3,26.0%22 fill=%22%23e2c26a%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%222.0,30.0 6.0,22.7 9.3,26.0%22 fill=%22%232a2224%22 stroke=%22%23fffdf9%22 stroke-width=%221%22 stroke-linejoin=%22round%22/%3E%3Cpolygon points=%2218.7,8.5 20.8,6.4 25.6,11.2 23.5,13.3%22 fill=%22%23e2c26a%22/%3E%3Ccircle cx=%222.4%22 cy=%2229.6%22 r=%222.4%22 fill=%22%23b3243f%22/%3E%3C/svg%3E") 2 30,grabbing}
+}
 </style>
 </head>
 <body>
@@ -509,7 +548,7 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
             <div class="ln"><span>1 Audit support</span><b>2025-26</b></div>
             <div class="ln"><span>4 Invoice checks in Python</span><b>built</b></div>
             <div class="dash"></div>
-            <div class="ln tt"><span>OPEN TO</span><b>FINANCE &middot; AUDIT &middot; DATA</b></div>
+            <div class="ln tt"><span>OPEN TO</span><b>FINANCE, AUDIT, DATA</b></div>
             <div class="barcode"></div>
             <div class="ty">THANK YOU FOR READING</div>
             <span class="stamp">TIES OUT</span>
@@ -517,17 +556,35 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
         </div>
       </div>
 
-      <ul class="index" aria-label="Contents">
-        <li><a href="#cases"><span class="ref" aria-hidden="true">02</span><b>Case files</b><span class="d">An invoice audit lab you can play, and a retail profitability study</span></a></li>
-        <li><a href="#background"><span class="ref" aria-hidden="true">03</span><b>Notes from the analyst</b><span class="d">Accounts payable, audit support and an MBA</span></a></li>
-        <li><a href="#evidence"><span class="ref" aria-hidden="true">03</span><b>Skills, with receipts</b><span class="d">Each skill, with where I used it</span></a></li>
-        <li><a href="#contact"><span class="ref" aria-hidden="true">04</span><b>Sign-off</b><span class="d">Say hello, or review my work</span></a></li>
-      </ul>
-      <div class="penrow">
-        <button class="penbtn" id="pen" type="button" aria-pressed="false">Pick up the pen</button>
-        <button class="penbtn clear" id="pen-clear" type="button" hidden>Clear the ticks</button>
+      <div class="printer">
+        <button class="prbtn" id="pen" type="button" aria-expanded="false" aria-controls="feed" aria-label="Print the contents">
+          <span class="penlabel" id="penlabel">press print for the contents</span>
+          <svg class="pdev" viewBox="0 0 300 100" aria-hidden="true">
+            <defs><linearGradient id="pbody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d3350"/><stop offset=".25" stop-color="#6e1f3a"/><stop offset="1" stop-color="#43101f"/></linearGradient></defs>
+            <rect x="4" y="6" width="292" height="84" rx="16" fill="url(#pbody)"/>
+            <rect x="12" y="12" width="276" height="6" rx="3" fill="#ffffff" opacity=".14"/>
+            <rect x="22" y="28" width="132" height="26" rx="5" fill="#1d0b12"/>
+            <text x="30" y="46" font-family="IBM Plex Mono,Courier New,monospace" font-size="12" fill="#f6d9a0" letter-spacing="1.5">TIES OUT</text>
+            <circle cx="176" cy="41" r="4" fill="#5fe08a" class="led"/>
+            <circle cx="244" cy="42" r="19" fill="#2a0a14"/>
+            <circle cx="244" cy="40" r="16" fill="#c0283f" class="pbt"/>
+            <text x="244" y="44" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="9" fill="#fff" letter-spacing=".5">PRINT</text>
+            <rect x="34" y="72" width="232" height="9" rx="4.5" fill="#12060b"/>
+          </svg>
+        </button>
+        <div class="feed" id="feed"><div class="paper">
+          <div class="prh">ANJOLA BALOGUN<small>TABLE OF CONTENTS</small></div>
+          <ul class="index" id="pages" aria-label="Contents">
+            <li><a href="#cases"><span class="ref" aria-hidden="true">02</span><b>Case files</b><span class="d">An invoice audit lab you can play, and a retail profitability study</span></a></li>
+            <li><a href="#background"><span class="ref" aria-hidden="true">03</span><b>Notes from the analyst</b><span class="d">Accounts payable, audit support and an MBA</span></a></li>
+            <li><a href="#evidence"><span class="ref" aria-hidden="true">03</span><b>Skills, with receipts</b><span class="d">Each skill, with where I used it</span></a></li>
+            <li><a href="#contact"><span class="ref" aria-hidden="true">04</span><b>Sign-off</b><span class="d">Say hello, or review my work</span></a></li>
+          </ul>
+          <div class="barcode"></div>
+          <div class="ty" style="text-align:center;font-size:.68rem;letter-spacing:.12em;color:#6b5a5f;padding-bottom:10px">THANK YOU FOR READING</div>
+          <div class="zig"></div>
+        </div></div>
       </div>
-      <div id="pen-layer" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -1336,26 +1393,17 @@ $("#run").addEventListener("click",function(){runTie($("#run"),$("#tie-summary")
   });
 })();
 
-/* ---------- home: pick up the pen ---------- */
+/* ---------- home: the printer prints the contents ---------- */
 (function(){
-  var home=$(".home"), layer=$("#pen-layer"), btn=$("#pen"), clr=$("#pen-clear"), on=false;
+  var btn=$("#pen"), feed=$("#feed"), lab=$("#penlabel"), on=false;
   function set(v){
-    on=v; btn.setAttribute("aria-pressed",String(v));
-    btn.textContent=v?"Put the pen down":"Pick up the pen";
-    home.classList.toggle("penmode",v);
+    on=v; btn.setAttribute("aria-expanded",String(v)); feed.classList.toggle("open",v);
+    lab.textContent=v?"tear off a page":"press print for the contents";
+    btn.setAttribute("aria-label",v?"Close the contents":"Print the contents");
   }
   penOff=function(){set(false);};
   btn.addEventListener("click",function(){set(!on);});
-  clr.addEventListener("click",function(){layer.textContent="";clr.hidden=true;});
-  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&on) set(false);});
-  home.addEventListener("click",function(e){
-    if(!on||e.target.closest("button,a")) return;
-    var r=home.getBoundingClientRect(), x=Math.round(e.clientX-r.left), y=Math.round(e.clientY-r.top);
-    var rot=Math.round(Math.random()*24-12), sc=(0.8+Math.random()*0.6).toFixed(2);
-    layer.insertAdjacentHTML("beforeend",'<svg class="pstamp" style="left:'+x+'px;top:'+y+'px;transform:rotate('+rot+'deg) scale('+sc+')" viewBox="0 0 60 50" fill="none" stroke="#B91F18" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 28 L22 43 L54 6"/></svg>');
-    while(layer.children.length>60) layer.removeChild(layer.firstChild);
-    clr.hidden=false;
-  });
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&on){set(false);btn.focus();}});
 })();
 
 /* ---------- sign-off ---------- */
@@ -1387,7 +1435,7 @@ rev.addEventListener("input",function(){
   function bar(){var h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?Math.min(100,scrollY/h*100):0)+"%";}
   addEventListener("scroll",bar,{passive:true});addEventListener("resize",bar);addEventListener("hashchange",function(){setTimeout(bar,50);});bar();
   if(calm) return;
-  var sel=".index li,.ccard,.skr,.find,.job,.learned,.tune,.sched,.cfig,.hdrstrip,.legend-top,.synth,.vbody>h2,.vbody>.lede,.sign,.filters,.steps";
+  var sel=".ccard,.skr,.find,.job,.learned,.tune,.sched,.cfig,.hdrstrip,.legend-top,.synth,.vbody>h2,.vbody>.lede,.sign,.filters,.steps";
   var els=[].slice.call(document.querySelectorAll(sel));
   var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.05}):null;
   els.forEach(function(el){
