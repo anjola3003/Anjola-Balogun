@@ -539,6 +539,15 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
 .psnd{appearance:none;border:0;border-radius:10px;background:#fffdf9;width:44px;height:34px;margin:6px 0 0 4px;cursor:pointer;font-size:1.05rem;border-bottom:4px solid #c9b2b6}
 .psnd[aria-pressed="false"]{opacity:.55;text-decoration:line-through}
 .top nav a.navcv{border:1.5px solid currentColor;margin-left:6px}
+.avail{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;font-weight:600;background:#e8f5ee;color:#1d7a4b;padding:5px 12px;border-radius:99px;margin-bottom:10px}
+.avail i{width:8px;height:8px;border-radius:50%;background:#1d7a4b;animation:availp 1.8s infinite}
+@keyframes availp{50%{opacity:.3}}
+.hire{background:var(--wine);color:#fff;border-radius:22px;padding:30px 26px;margin:20px 0 26px}
+.hire h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;margin:0 0 8px;color:#fff}
+.hire p{margin:0 0 4px;color:#fbe9ee}
+.hire .btn{background:#fff;color:var(--wine)}
+.hire .btn.alt{background:none;color:#fff;border:2px solid #fff}
+@media (prefers-reduced-motion:reduce){.avail i{animation:none}}
 </style>
 </head>
 <body>
@@ -565,10 +574,10 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
     <div class="wrap home coverwrap">
       <div class="cover">
         <div>
-          <span class="pg" aria-hidden="true">page 01 / 04 &middot; the cover</span>
+          <span class="avail"><i aria-hidden="true"></i> Open to roles now</span><br>
           <h1 class="big" id="h-home" tabindex="-1">Curious about the numbers. Interested in <span class="hl">what they mean.</span></h1>
           <p class="lede">I'm Anjola, a finance and analytics professional focused on financial data and controls. I came up through accounts payable and audit support, then added an MBA in Business Analytics. I check the numbers, then say what to do about them.</p>
-          <p class="quiet">Dallas, TX. Open to finance, audit, accounting, operations and analytics roles.</p>
+          <p class="quiet">Dallas, TX. Finance, audit, accounting, operations and analytics.</p>
           <div class="cta">
             <a class="btn" href="#cases">See my projects</a>
             <a class="btn alt" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (PDF)</a>
@@ -1042,7 +1051,15 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
       <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 04 / 04</span></div>
       <div class="vbody">
         <h1 class="vt" id="h-contact" tabindex="-1">Contact <span class="pen" style="font-size:.5em">(sign-off)</span></h1>
-        <p class="lede" style="font-size:1.12rem;margin-top:18px">I'm open to finance, audit, accounting, operations and analytics roles. Review the work, sign off below, and message me.</p>
+        <div class="hire">
+          <h2>Hiring for finance, audit or analytics?</h2>
+          <p>I'd love to hear what your team is working on. Message me directly, or review the work and sign off below.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:anjola.balogun@yahoo.co.uk">Email me</a>
+            <a class="btn alt" href="https://www.linkedin.com/in/anjola-balogun-mba-474954184/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn alt" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (PDF)</a>
+          </div>
+        </div>
         <div class="sign">
           <div class="line"><span>Prepared by</span><div class="field signed">Anjola Balogun</div></div>
           <div class="line"><span>Reviewed by</span><div class="field" id="rev-name" aria-live="polite"></div></div>
@@ -1061,11 +1078,6 @@ svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-i
             </div>
             <p class="fine" id="sign-fine">This stays in your browser. Nothing is stored or sent.</p>
           </form>
-          <div class="cta">
-            <a class="btn" href="https://www.linkedin.com/in/anjola-balogun-mba-474954184/" target="_blank" rel="noopener" style="color:var(--paper)">Message me on LinkedIn</a>
-            <a class="btn alt" href="mailto:anjola.balogun@yahoo.co.uk">Email me</a>
-            <a class="btn alt" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-          </div>
         </div>
       </div>
     </div>
