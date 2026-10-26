@@ -1,0 +1,1477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anjola Balogun | Finance, Audit & Analytics</title>
+<meta name="description" content="Anjola Balogun is a finance and analytics professional focused on financial data and controls, with an accounts payable and audit background and an MBA in Business Analytics. Open the case files, try the invoice audit lab, or watch a page re-check its own numbers.">
+<meta name="theme-color" content="#FFF9F3">
+<script>document.documentElement.className="js";</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFF9F3;
+  --paper-2:#F7E3E3;
+  --cell:#FFFDF9;
+  --rule:#EAD2D5;
+  --ink:#321B25;
+  --mute:#6B525A;
+  --red:#B3243F;
+  --blue:#3F4C9A;
+  --wine:#7C2440;
+  --hi:#FBE9BE;
+  --focus:#3F4C9A;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono","Courier New",ui-monospace,monospace;
+  --pen:"Caveat","Bradley Hand","Segoe Script","Comic Sans MS",cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100dvh;display:flex;flex-direction:column;
+  background-color:var(--paper);
+  background-image:linear-gradient(color-mix(in srgb,var(--rule) 38%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--rule) 38%,transparent) 1px,transparent 1px);
+  background-size:32px 32px}
+a{color:var(--blue);font-weight:600}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 14px;border-radius:6px;z-index:60;font-weight:700}
+.skip:focus{left:12px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+
+/* views: with JS only one shows at a time; without JS they stack */
+.js .view:not(.on){display:none}
+.view{flex:1}
+.view h1:focus{outline:none}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(6px);border-bottom:2px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.logo{font-weight:800;font-size:1.15rem;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.top nav{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end}
+.top nav a{color:var(--ink);text-decoration:none;font-weight:600;padding:7px 11px;border-radius:6px;font-size:.98rem}
+.top nav a:hover{background:var(--paper-2)}
+.top nav a[aria-current="page"]{background:var(--ink);color:var(--paper)}
+
+/* type */
+h1{font-weight:800;margin:0;text-wrap:balance}
+h1.big{font-size:clamp(2.7rem,7.2vw,6.4rem);line-height:.97;letter-spacing:-.045em}
+h1.big svg{display:inline-block;height:.82em;width:auto;vertical-align:-.06em;margin-left:.08em;overflow:visible}
+h1.vt{font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.04;letter-spacing:-.035em;max-width:20ch}
+h2{font-weight:800;font-size:1.5rem;letter-spacing:-.02em;margin:38px 0 10px}
+h3{font-weight:700;font-size:1.1rem;letter-spacing:-.01em;margin:28px 0 8px}
+p{margin:0 0 14px;max-width:62ch}
+.lede{font-size:1.28rem;max-width:32em;font-weight:500;margin-top:24px}
+.mute{color:var(--mute)}
+.pen{font-family:var(--pen);font-weight:600;font-size:1.45rem;line-height:1.1;color:var(--blue);display:inline-block;transform:rotate(-2.5deg)}
+.pen.red{color:var(--red)}
+.ref{font-family:var(--pen);font-weight:600;font-size:1.6rem;color:var(--red);line-height:1;display:inline-block;transform:rotate(-4deg)}
+
+/* home */
+.home{display:flex;flex-direction:column;justify-content:center;min-height:calc(100dvh - 120px);padding:clamp(28px,6vw,70px) 0 clamp(32px,5vw,60px)}
+.quiet{margin-top:14px;color:var(--mute);font-weight:600}
+.index{list-style:none;margin:clamp(34px,5vw,56px) 0 0;padding:0;max-width:900px;border-top:2px solid var(--ink)}
+.index a{display:grid;grid-template-columns:62px minmax(170px,270px) minmax(0,1fr);gap:4px 18px;align-items:baseline;padding:16px 12px;border-bottom:2px solid var(--ink);text-decoration:none;color:var(--ink);font-weight:500}
+.index a:hover{background:var(--hi)}
+.index b{font-size:clamp(1.35rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.025em;line-height:1.1}
+.index .d{color:var(--mute)}
+.index .ref{font-size:1.5rem}
+
+/* interior views */
+.vhead{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:26px 0 12px}
+.back{font-weight:700;text-decoration:none;color:var(--ink);border:2px solid var(--ink);border-radius:6px;padding:6px 14px;font-size:.95rem;background:var(--cell)}
+.back:hover{background:var(--hi)}
+.vbody{padding:6px 0 70px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:0 36px;align-items:start}
+.legend-side{position:sticky;top:74px;margin-top:6px}
+.legend-top{display:none}
+
+.hdrstrip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid var(--ink);background:var(--cell);margin:6px 0 24px;max-width:900px}
+.hdrstrip div{padding:8px 12px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);min-width:0}
+.hdrstrip div:nth-child(3n){border-right:0}
+.hdrstrip div:nth-last-child(-n+3){border-bottom:0}
+.hdrstrip small{display:block;font-size:.76rem;font-weight:600;color:var(--mute)}
+.hdrstrip b{font-weight:600;font-size:.98rem}
+
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:20px}
+.btn{display:inline-block;text-decoration:none;font:inherit;font-weight:700;padding:12px 20px;background:var(--ink);color:var(--paper);border:2px solid var(--ink);border-radius:6px;cursor:pointer}
+.btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+.btn.alt{background:transparent;color:var(--ink)}
+.btn.alt:hover{background:var(--paper-2);color:var(--ink);border-color:var(--ink)}
+.btn.sm{padding:9px 16px;font-size:.95rem}
+.btn:disabled{opacity:.6;cursor:progress}
+
+/* schedules */
+.sched{border-collapse:separate;border-spacing:0;width:100%;max-width:880px;background:var(--cell);border:2px solid var(--ink);margin:6px 0 16px}
+.sched caption{text-align:left;font-weight:700;font-size:1.05rem;padding:0 0 8px;caption-side:top;letter-spacing:-.01em}
+.sched th,.sched td{padding:9px 14px;border-bottom:1px solid var(--rule);text-align:left;font-weight:500;vertical-align:baseline}
+.sched thead th{background:var(--paper-2);font-size:.82rem;font-weight:700;color:var(--mute);border-bottom:2px solid var(--ink)}
+.sched tbody tr:last-child th,.sched tbody tr:last-child td{border-bottom:0}
+.sched .n{font-family:var(--mono);text-align:right;white-space:nowrap;position:relative;font-size:.95rem}
+.sched thead .n{font-family:var(--sans)}
+.sched tr.tot td,.sched tr.tot th{font-weight:700;border-top:2px solid var(--ink)}
+.neg{color:var(--red)}
+.sched td.m .v{position:relative;display:inline-block}
+.sched td.m .v::before{content:"";position:absolute;inset:-3px -9px;border:2.5px solid var(--red);border-radius:55% 45% 52% 48% / 62% 50% 55% 44%;transform:rotate(-1.5deg) scale(.7);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.sched tr.flag td.m .v::before{opacity:1;transform:rotate(-1.5deg) scale(1)}
+.sched tr.flag th{color:var(--red)}
+.idx td.n{font-family:var(--sans);text-align:left;white-space:normal;font-size:1rem}
+
+.tol{background:var(--cell);border:2px solid var(--ink);padding:16px 18px;max-width:880px;margin:20px 0}
+.tol label{font-weight:700;display:block;margin-bottom:6px}
+.tol .row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.tol input[type=range]{flex:1 1 260px;accent-color:var(--red);height:30px}
+.tol output{font-family:var(--mono);font-weight:600;min-width:5ch}
+.tol .count{margin:8px 0 0;font-weight:600}
+
+/* tickmarks */
+.tk{appearance:none;border:0;background:none;padding:0;margin-left:7px;cursor:pointer;position:relative;display:inline-grid;place-items:center;vertical-align:middle;min-width:24px;height:24px;font-family:var(--pen);font-weight:600;font-size:1.5rem;line-height:1;color:var(--red);border-radius:4px}
+.tk svg{width:20px;height:20px;overflow:visible}
+.tk.r{color:var(--blue)}
+.tk svg path{stroke-dasharray:80;stroke-dashoffset:80;animation:draw .35s ease-out forwards}
+.tk .g{display:inline-block;transform:rotate(-6deg);opacity:0;animation:pop .3s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes hdraw{to{stroke-dashoffset:0}}
+@keyframes pop{from{opacity:0;transform:rotate(-6deg) scale(.4)}to{opacity:1;transform:rotate(-6deg) scale(1)}}
+.tn{display:none;position:absolute;top:calc(100% + 6px);left:-8px;width:min(290px,70vw);background:#FFF9C9;color:var(--ink);border:1.5px solid var(--ink);padding:10px 12px;text-align:left;font-family:var(--sans);font-size:.88rem;font-weight:500;line-height:1.4;z-index:25;box-shadow:3px 3px 0 var(--ink);white-space:normal;cursor:default}
+.tn.left{left:auto;right:-8px}
+.tk[aria-expanded="true"] .tn{display:block}
+.tn b{display:block;margin-bottom:2px}
+
+.legend{background:var(--cell);border:2px solid var(--ink);padding:14px 16px}
+.legend h2{font-size:1.05rem;letter-spacing:-.01em;margin:0 0 10px}
+.legend ul{list-style:none;margin:0;padding:0}
+.legend li{display:grid;grid-template-columns:30px 1fr;gap:6px;margin-bottom:10px;font-size:.9rem;line-height:1.35}
+.legend li:last-child{margin-bottom:0}
+.legend .sym{font-family:var(--pen);font-weight:600;font-size:1.5rem;color:var(--red);line-height:1}
+.legend .sym.r{color:var(--blue)}
+.legend .sym svg{width:20px;height:20px}
+.tiesum{margin:16px 0 0;padding:12px 16px;border-left:6px solid var(--red);background:var(--cell);max-width:720px;font-weight:600}
+.tiesum[hidden]{display:none}
+
+/* findings */
+.finds{display:grid;gap:14px;max-width:880px}
+.find{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:2px solid var(--ink);background:var(--cell)}
+.find>div{padding:14px 16px;border-right:1px solid var(--rule)}
+.find>div:last-child{border-right:0}
+.find small{display:block;font-size:.78rem;font-weight:700;color:var(--mute);margin-bottom:4px}
+.find p{margin:0;font-size:.98rem}
+.limits{max-width:880px;margin:0;padding-left:1.2em}
+.limits li{margin-bottom:6px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.planned{border:2px dashed var(--mute);background:color-mix(in srgb,var(--cell) 60%,transparent);padding:16px 20px;max-width:880px;margin-top:34px}
+.planned b{display:block;font-size:1.05rem}
+.planned p{margin:6px 0 0}
+
+/* background */
+.tl{max-width:880px;display:grid;gap:12px}
+.job{display:grid;grid-template-columns:170px minmax(0,1fr);border:2px solid var(--ink);background:var(--cell)}
+.job .when{padding:12px 14px;background:var(--paper-2);font-family:var(--mono);font-size:.86rem;border-right:2px solid var(--ink)}
+.job .what{padding:12px 16px}
+.job b{display:block;font-size:1.05rem;letter-spacing:-.01em}
+.job ul{margin:8px 0 0;padding-left:1.15em}
+.job li{margin-bottom:5px}
+
+/* sign-off */
+.sign{max-width:880px;border:2px solid var(--ink);background:var(--cell);padding:20px 22px}
+.sign .line{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 16px;align-items:end;margin-bottom:14px}
+.sign .line span{font-weight:700}
+.sign .field{border-bottom:2px solid var(--ink);min-height:44px;display:flex;align-items:flex-end;padding-bottom:2px;font-family:var(--pen);font-weight:600;font-size:1.9rem;line-height:1.1;color:var(--blue)}
+.sign .signed{color:var(--red)}
+.sign input{font:inherit;width:100%;max-width:340px;padding:8px 10px;border:2px solid var(--ink);background:#fff;border-radius:4px}
+.sign label{font-weight:700;display:block;margin-bottom:6px}
+.sign .fine{font-size:.88rem;color:var(--mute);margin:6px 0 0}
+footer{padding:26px 0 40px;font-weight:600;color:var(--mute)}
+
+
+/* pen mode (home) */
+.home{position:relative}
+.penrow{margin-top:20px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.penbtn{appearance:none;font-family:var(--pen);font-weight:600;font-size:1.5rem;line-height:1;color:var(--blue);background:none;border:0;border-bottom:2px dashed var(--blue);padding:2px 2px 4px;cursor:pointer;transform:rotate(-1.5deg)}
+.penbtn[aria-pressed="true"]{color:var(--red);border-color:var(--red)}
+.penbtn.clear{color:var(--mute);border-color:var(--mute)}
+.penbtn[hidden]{display:none}
+.penmode{cursor:crosshair}
+.penmode .index a{pointer-events:none}
+#pen-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.pstamp{position:absolute;width:34px;height:30px;margin:-15px 0 0 -17px;overflow:visible}
+.pstamp path{stroke-dasharray:80;stroke-dashoffset:80;animation:draw .3s ease-out forwards}
+
+/* invoice lab */
+.synth{border:2px dashed var(--mute);background:color-mix(in srgb,var(--cell) 70%,transparent);padding:10px 14px;max-width:900px;margin:16px 0}
+.steps{display:flex;flex-wrap:wrap;gap:6px 26px;margin:0 0 14px;padding:0;list-style:none;max-width:900px;font-weight:600}
+.steps li{display:flex;gap:8px;align-items:baseline}
+.steps .ref{font-size:1.4rem;transform:none}
+.tune{background:var(--cell);border:2px solid var(--ink);padding:14px 18px;max-width:900px;margin:12px 0}
+.tune h2{font-size:1.05rem;margin:0 0 10px}
+.tgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px}
+.tgrid label{font-weight:600;display:block;font-size:.95rem;margin-bottom:2px}
+.tgrid .r{display:flex;align-items:center;gap:10px}
+.tgrid input[type=range]{flex:1;min-width:0;accent-color:var(--red)}
+.tgrid output{font-family:var(--mono);font-weight:600;min-width:7ch;text-align:right;font-size:.9rem}
+.tgrid select{font:inherit;padding:6px 8px;border:2px solid var(--ink);background:#fff;border-radius:4px;width:100%}
+.score{margin:14px 0 0;padding:12px 16px;border-left:6px solid var(--blue);background:var(--cell);max-width:900px;font-weight:600;min-height:3.4em}
+.inv{list-style:none;margin:14px 0 0;padding:0;max-width:900px;border:2px solid var(--ink);background:var(--cell)}
+.inv li{display:grid;grid-template-columns:46px minmax(0,1fr) 110px 130px;gap:2px 12px;align-items:center;padding:8px 12px 8px 8px;border-bottom:1px solid var(--rule)}
+.inv li:last-child{border-bottom:0}
+.inv li.head{background:var(--paper-2);font-size:.82rem;font-weight:700;color:var(--mute);border-bottom:2px solid var(--ink)}
+.inv .amt{font-family:var(--mono);text-align:right;font-size:.95rem;position:relative}
+.inv .paid{font-size:.92rem;position:relative}
+.inv .main b{display:block;font-weight:700;line-height:1.25}
+.inv .main small{color:var(--mute);font-size:.88rem;position:relative}
+.inv .mk{width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);background:var(--cell);font-family:var(--pen);font-weight:600;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--ink);padding:0}
+.inv .mk:hover{background:var(--hi)}
+.inv .mk[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.inv .fl{grid-column:2 / -1;display:flex;gap:6px 8px;flex-wrap:wrap;align-items:center}
+.inv .fl:empty{display:none}
+.inv .fl .pen{font-size:1.15rem}
+.inv li.marked{background:var(--hi)}
+.inv li.hit{box-shadow:inset 6px 0 0 var(--red)}
+.fchip{font-size:.8rem;font-weight:700;padding:2px 10px;border:2px solid var(--ink);border-radius:999px;background:var(--cell);line-height:1.4}
+.fchip.exact{background:var(--red);border-color:var(--red);color:#fff}
+.fchip.possible{border-color:var(--red);color:var(--red)}
+.fchip.limit{border-color:var(--blue);color:var(--blue)}
+.fchip.late{background:var(--ink);color:var(--paper)}
+.checks{max-width:900px;margin:0;padding-left:1.2em}
+.checks li{margin-bottom:6px}
+
+/* evidence filters */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 4px}
+.filters button{font:inherit;font-weight:700;padding:7px 14px;border:2px solid var(--ink);border-radius:999px;background:var(--cell);cursor:pointer;color:var(--ink)}
+.filters button:hover{background:var(--hi)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.fcount{color:var(--mute);margin:6px 0 12px;font-weight:600}
+
+/* superstore chart */
+.cfig{margin:6px 0 18px;max-width:880px;background:var(--cell);border:2px solid var(--ink);padding:14px 16px 10px}
+.cfig figcaption{font-weight:700;margin-bottom:4px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+.cplot{position:relative;height:260px}
+.cbars{position:absolute;inset:26px 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.cbar{position:relative}
+.cbar .f{position:absolute;left:16%;right:16%;background:#2E6B4F;transition:background-color .25s}
+.cbar.low .f{background:var(--red)}
+.cbar .t{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--mono);font-size:.78rem;font-weight:600}
+.czero{position:absolute;left:0;right:0;height:2px;background:var(--ink);z-index:2}
+.cx{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;text-align:center;font-weight:600;font-size:.86rem;color:var(--mute);padding-top:4px}
+.more{margin-top:14px;max-width:880px}
+.more summary{cursor:pointer;font-weight:700;padding:4px 0}
+.sched tr[hidden]{display:none}
+
+
+/* ===== Data Diary skin ===== */
+body{background-image:radial-gradient(ellipse at 85% -10%,#f1d4d8 0,transparent 42%),radial-gradient(ellipse at 0% 100%,#fbeadf 0,transparent 40%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .15 0 0 0 0 .2 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");background-size:auto,auto,160px 160px}
+a{color:var(--wine)}
+.top{border-bottom:1px solid var(--rule);background:color-mix(in srgb,var(--paper) 92%,transparent)}
+.logo{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.4rem;letter-spacing:-.02em}
+.logo span{color:var(--red)}
+.top nav a[aria-current="page"]{background:var(--wine)}
+h1,h2,.index b{font-family:var(--serif);font-weight:500}
+h1.big{font-size:clamp(2.6rem,6.2vw,5.6rem);line-height:1;letter-spacing:-.04em}
+h1.vt{letter-spacing:-.03em}
+h2{font-size:1.7rem;letter-spacing:-.025em}
+.hl{background-image:linear-gradient(transparent 58%,#EAB4C0 58%,#EAB4C0 92%,transparent 92%);padding:0 .08em;font-style:italic}
+.pg{font-family:var(--pen);font-weight:600;font-size:1.5rem;color:var(--red);transform:rotate(-2deg);display:inline-block}
+.btn{border-radius:999px;background:var(--wine);border-color:var(--wine)}
+.btn.alt{background:transparent;color:var(--wine)}
+.btn.alt:hover{color:var(--wine)}
+.back{border-radius:999px;border-width:1px;border-color:var(--rule)}
+.tune,.legend,.sign,.cfig{border-radius:14px;box-shadow:0 12px 34px #5a10270d}
+.index a{border-bottom-width:1px}
+.index{border-top-width:1px}
+.index a:hover{background:#F9E7E6}
+
+/* cover */
+.cover{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:30px 40px;align-items:center}
+.mono{position:relative;min-height:340px;display:grid;place-items:center}
+.blob{width:min(330px,86%);aspect-ratio:.92;border-radius:48% 52% 41% 59% / 41% 38% 62% 59%;background:linear-gradient(150deg,#d99aab,#eed0d3 55%,#9d4560);transform:rotate(-4deg);box-shadow:0 18px 50px #5a102720;display:grid;place-items:center}
+.blob b{font-family:var(--serif);font-weight:500;font-size:clamp(6rem,13vw,10rem);color:#fff8f1;letter-spacing:-.1em;transform:rotate(4deg)}
+.slip{position:absolute;background:#FFFDF9;border:1px solid var(--rule);border-radius:12px;padding:9px 14px;box-shadow:0 10px 26px #5a102718;font-family:var(--pen);font-weight:600;font-size:1.35rem;color:var(--wine);line-height:1.1}
+.slip.a{top:26px;left:0;transform:rotate(-6deg)}
+.slip.b{bottom:34px;right:0;transform:rotate(4deg)}
+.coverwrap{min-height:calc(100dvh - 120px);display:flex;flex-direction:column;justify-content:center}
+
+/* case-file cards */
+.cgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:6px}
+.ccard{background:var(--cell);border:1px solid var(--rule);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 26px #5a10270b;transition:transform .25s,box-shadow .25s}
+.ccard:hover{transform:translateY(-5px);box-shadow:0 18px 44px #5a102718}
+.ccard[hidden]{display:none}
+.cvis{height:150px;background:linear-gradient(135deg,#F4D9D9,#FFF3E9);display:flex;align-items:center;justify-content:center;padding:18px;overflow:hidden}
+.mini{background:#fffdf8;border:1px solid #e7c9cd;border-radius:8px;padding:11px 13px;box-shadow:0 6px 16px #5a102715;width:100%;max-width:230px;font-size:.78rem;font-weight:700;color:var(--wine);transform:rotate(-2deg)}
+.mini div{display:flex;justify-content:space-between;margin:5px 0;gap:8px}
+.mini i{font-style:normal;color:#2E6B4F}
+.mbars{display:flex;align-items:flex-end;gap:7px;height:96px;width:100%;max-width:230px;background:#fffdf8;border:1px solid #e7c9cd;border-radius:8px;padding:10px 12px 0;box-shadow:0 6px 16px #5a102715;transform:rotate(1.5deg)}
+.mbars span{flex:1;background:#bd6b83;border-radius:4px 4px 0 0}
+.mbars span:nth-child(2n){background:var(--wine)}
+.mbars span.neg{background:var(--red)}
+.cbody{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.ctags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.ctag{font-size:.74rem;font-weight:700;border-radius:999px;background:#F0CBD3;color:var(--wine);padding:4px 10px}
+.status{font-size:.74rem;font-weight:700;border-radius:6px;border:1px solid #E7D3D6;padding:3px 8px;color:var(--mute)}
+.status.done{border-color:#9DBF9C;color:#2E6B4F;background:#EEF7EC}
+.cbody h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;letter-spacing:-.025em;margin:4px 0 8px}
+.cbody p{color:var(--mute);font-size:.95rem}
+.cbody .go{margin-top:auto;font-weight:700;text-decoration:none;color:var(--wine)}
+.cbody .go:hover{text-decoration:underline}
+
+/* what I learned */
+.learned{max-width:880px;margin:34px 0 0;border:1px solid var(--rule);border-radius:14px;background:linear-gradient(180deg,#FFF6EC,#FFFDF9);padding:18px 22px 14px;position:relative}
+.learned .pg{position:absolute;top:-16px;left:18px;background:var(--paper);padding:0 10px}
+.learned h2{margin:6px 0 8px;font-size:1.35rem}
+.learned ul{margin:0;padding-left:1.15em}
+.learned li{margin-bottom:8px}
+
+@media (max-width:860px){
+  .cover{grid-template-columns:1fr}
+  .mono{min-height:250px;order:-1}
+  .blob{width:210px}
+  .cgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){.cgrid{grid-template-columns:1fr}.coverwrap{min-height:0}.mono{min-height:190px}.blob{width:165px}.slip{font-size:1.1rem;padding:6px 10px}.slip.a{top:6px;left:0}.slip.b{display:none}}
+
+/* ===== motion: gentle reveals ===== */
+#prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--rose,#b84d6a),var(--wine));z-index:70;pointer-events:none}
+.js .rv{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+.js .ccard.rv.in{transition:opacity .6s ease,transform .25s ease,box-shadow .25s ease}
+.js .ccard.rv.in:hover{transform:translateY(-5px)}
+.js #v-home.on .cover>div:first-child>*{opacity:0;animation:rise .7s ease forwards}
+.js #v-home.on .cover>div:first-child>*:nth-child(2){animation-delay:.12s}
+.js #v-home.on .cover>div:first-child>*:nth-child(3){animation-delay:.24s}
+.js #v-home.on .cover>div:first-child>*:nth-child(4){animation-delay:.34s}
+.js #v-home.on .cover>div:first-child>*:nth-child(5){animation-delay:.44s}
+.js #v-home.on .blob{animation:rise .9s .2s ease both}
+.js #v-home.on .slip{animation:rise .8s ease both}
+.js #v-home.on .slip.a{animation-delay:.6s}
+.js #v-home.on .slip.b{animation-delay:.8s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1}}
+.rc{transition:rotate .35s ease-out}
+.hl{background-size:0 100%;background-repeat:no-repeat;animation:hlin .9s .9s ease forwards}
+@keyframes hlin{to{background-size:100% 100%}}
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1;transform:none}
+  .js #v-home.on .cover>div:first-child>*{opacity:1}
+  .hl{background-size:100% 100%}
+}
+
+@media (max-width:980px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .legend-side{display:none}
+  .legend-top{display:block;margin:18px 0;max-width:700px}
+  .legend-top ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+  .legend-top li{margin:0}
+}
+@media (max-width:720px){
+  .hdrstrip{grid-template-columns:1fr 1fr}
+  .hdrstrip div:nth-child(3n){border-right:1px solid var(--rule)}
+  .hdrstrip div:nth-child(2n){border-right:0}
+  .hdrstrip div:nth-last-child(-n+3){border-bottom:1px solid var(--rule)}
+  .hdrstrip div:nth-last-child(-n+2){border-bottom:0}
+  .find{grid-template-columns:1fr}
+  .find>div{border-right:0;border-bottom:1px solid var(--rule)}
+  .find>div:last-child{border-bottom:0}
+  .legend-top ul{grid-template-columns:1fr}
+  .job{grid-template-columns:1fr}
+  .job .when{border-right:0;border-bottom:2px solid var(--ink)}
+  .sign .line{grid-template-columns:1fr}
+  .index a{grid-template-columns:44px minmax(0,1fr);padding:14px 6px}
+  .index .d{grid-column:2}
+  .sched th,.sched td{padding:8px 6px;font-size:.92rem}
+  .sched .n{font-size:.76rem;padding-inline:5px}
+  .tk{margin-left:3px;min-width:20px;height:22px}
+  .tk svg{width:16px;height:16px}
+  .tol .row{gap:8px}
+  .tgrid{grid-template-columns:1fr}
+  .inv li{grid-template-columns:40px minmax(0,1fr) auto;padding:8px 8px 8px 6px}
+  .inv li.head{display:none}
+  .inv .paid{grid-column:2 / -1}
+  .inv .amt{grid-column:3;grid-row:1}
+  .cplot{height:230px}
+  .cbar .t{font-size:.66rem}
+  .cx{font-size:.7rem}
+}
+@media (max-width:560px){.top nav{display:none}.logo{white-space:nowrap}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none !important;transition:none !important}
+  .tk svg path{stroke-dashoffset:0}
+  .tk .g{opacity:1}
+  .herotick{stroke-dashoffset:0 !important}
+}
+/* ===== receipts ===== */
+.rcpt{--rp:#FFFEFA;font-family:var(--mono);background:var(--rp);color:#2A2224;position:relative;padding:20px 20px 22px;box-shadow:0 14px 34px #5a102716;border-radius:2px;margin-bottom:14px}
+.rcpt::after{content:"";position:absolute;left:0;right:0;bottom:-12px;height:12px;background:linear-gradient(135deg,var(--rp) 50%,transparent 50%) 0 0/16px 12px,linear-gradient(225deg,var(--rp) 50%,transparent 50%) 0 0/16px 12px;}
+.rcpt .rh{text-align:center;font-weight:600;letter-spacing:.08em;font-size:.95rem}
+.rcpt .rh small{display:block;font-weight:400;font-size:.68rem;letter-spacing:.1em;color:#6b5a5f;margin-top:3px}
+.rcpt .dash{border-top:2px dashed #cdb8bd;margin:12px 0}
+.rcpt .ln{display:flex;justify-content:space-between;gap:12px;font-size:.8rem;margin:5px 0;line-height:1.35}
+.rcpt .ln span{color:#6b5a5f}
+.rcpt .ln b{font-weight:600;text-align:right}
+.rcpt .ln.tt{font-size:.9rem;margin-top:8px}
+.rcpt .ln.tt span,.rcpt .ln.tt b{color:#2A2224;font-weight:700}
+.rcpt .note{font-family:var(--sans);font-size:.88rem;color:var(--mute);margin:12px 0 10px}
+.barcode{height:34px;margin:12px 0 10px;background:repeating-linear-gradient(90deg,#2A2224 0 2px,transparent 2px 4px,#2A2224 4px 5px,transparent 5px 8px,#2A2224 8px 11px,transparent 11px 12px,#2A2224 12px 13px,transparent 13px 16px)}
+.rcpt .ty{text-align:center;font-size:.68rem;letter-spacing:.12em;color:#6b5a5f}
+.ccard.rcpt{border:0;border-radius:2px;overflow:visible;display:block}
+.ccard.rcpt .go{display:block;text-align:center;font-family:var(--mono);font-size:.82rem;letter-spacing:.06em;font-weight:600;color:var(--wine)}
+.cgrid{gap:26px 20px;align-items:start}
+.rc{width:min(300px,92%);transform:rotate(2deg);padding:24px 22px 26px}
+.rc .ln{font-size:.78rem}
+.stamp{position:absolute;right:-14px;bottom:70px;border:3px solid var(--red);color:var(--red);font-weight:700;letter-spacing:.12em;font-size:.95rem;padding:5px 12px;border-radius:6px;transform:rotate(-12deg);background:#fffefa99;opacity:.9}
+.mono{min-height:420px;overflow-x:clip}
+.js #v-home.on .rc{animation:feed 1.4s cubic-bezier(.2,.8,.2,1) both}
+.js #v-home.on .rc .ln,.js #v-home.on .rc .rh,.js #v-home.on .rc .ty{opacity:0;animation:rise .5s ease forwards}
+.js #v-home.on .rc .rh{animation-delay:.5s}
+.js #v-home.on .rc .ln:nth-of-type(1){animation-delay:.8s}
+.js #v-home.on .rc .ln:nth-of-type(2){animation-delay:1s}
+.js #v-home.on .rc .ln:nth-of-type(3){animation-delay:1.2s}
+.js #v-home.on .rc .ln:nth-of-type(4){animation-delay:1.4s}
+.js #v-home.on .rc .ln:nth-of-type(5){animation-delay:1.6s}
+.js #v-home.on .rc .ln:nth-of-type(6){animation-delay:1.9s}
+.js #v-home.on .rc .ty{animation-delay:2.2s}
+.js #v-home.on .stamp{animation:stampin .4s 2.5s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes feed{from{transform:translateY(-60px) rotate(2deg);opacity:0}to{transform:rotate(2deg);opacity:1}}
+@keyframes stampin{from{opacity:0;transform:rotate(-12deg) scale(2)}to{opacity:.9;transform:rotate(-12deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.js #v-home.on .rc,.js #v-home.on .rc *,.js #v-home.on .stamp{animation:none!important;opacity:1}}
+@media (max-width:860px){.mono{min-height:380px;order:-1}.cgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.mono{min-height:360px}.cgrid{grid-template-columns:1fr}.rc{width:min(300px,88%)}.stamp{right:2px}}
+
+/* ===== strings ===== */
+@media (min-width:621px){.cgrid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:900px}}
+.inmy{font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.3;letter-spacing:-.02em;max-width:26em;margin:22px 0 4px;padding-left:18px;border-left:4px solid var(--red)}
+.inmy small{display:block;font-family:var(--pen);font-size:1.4rem;color:var(--red);margin-top:6px;letter-spacing:0}
+.cboard{position:relative}
+.cboard .cgrid{position:relative;z-index:2}
+svg.csv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.cstr{fill:none;stroke:var(--red);stroke-width:2.6;stroke-linecap:round;opacity:.8;transition:opacity .2s,stroke-width .2s;filter:drop-shadow(0 2px 1px #0003)}
+.cstr.dim{opacity:.16}.cstr.hot{opacity:1;stroke-width:3.6}
+.cpin{position:absolute;top:-10px;left:50%;width:20px;height:20px;margin-left:-10px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8d9d,var(--red) 55%,#6e0f20);box-shadow:0 4px 5px #0007;z-index:5}
+.cpin.b{background:radial-gradient(circle at 35% 30%,#8fa8ff,#2E4A9E 55%,#14245d)}
+.skr{grid-column:1 / -1;max-width:760px;width:100%;justify-self:center;margin-top:34px}
+.skl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 34px}
+.sk{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;padding:4px 6px;border-radius:3px;transition:background-color .2s}
+.sk span{color:#6b5a5f;text-align:right}
+.sk.hot{background:var(--hi)}.sk.hot span{color:#2A2224}
+.ccard.rcpt:nth-of-type(1){rotate:-.8deg}.ccard.rcpt:nth-of-type(2){rotate:.7deg}.ccard.rcpt:nth-of-type(3){rotate:-.5deg}
+.rcpt.drag{transition:none!important;z-index:30;box-shadow:0 30px 50px #0004;cursor:grabbing}
+.can-drag .ccard.rcpt,.can-drag .skr{cursor:grab}
+@media (max-width:860px){svg.csv{display:none}.skl{grid-template-columns:1fr}.skr{margin-top:10px}}
+
+.sign textarea{font:inherit;width:100%;max-width:520px;padding:8px 10px;border:2px solid var(--ink);background:#fff;border-radius:4px;resize:vertical}
+.sign input[type=email]{max-width:340px}
+.sent{margin:12px 0 0;padding:10px 14px;border-left:6px solid #2E6B4F;background:#EEF7EC;font-weight:600;max-width:520px}
+.sent.err{border-color:var(--red);background:#fff1f1}
+
+.cgrid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:880px}
+@media (max-width:620px){.cgrid{grid-template-columns:1fr}}
+@media (min-width:1000px){.cgrid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none}}
+</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<a class="skip" href="#content">Skip to the content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#home">Anjola Balogun</a>
+    <nav aria-label="Main">
+      <a href="#cases" data-nav="cases">Case files</a>
+      <a href="#background" data-nav="background">Notes</a>
+      <a href="#evidence" data-nav="evidence">Skills</a>
+      <a href="#contact" data-nav="contact">Sign-off</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+
+  <!-- COVER -->
+  <section class="view on" id="v-home" data-title="Anjola Balogun | Finance, Audit & Analytics" aria-label="Cover">
+    <div class="wrap home coverwrap">
+      <div class="cover">
+        <div>
+          <span class="pg" aria-hidden="true">page 01 / 04 &middot; the cover</span>
+          <h1 class="big" id="h-home" tabindex="-1">Curious about the numbers. Interested in <span class="hl">what they mean.</span></h1>
+          <p class="lede">I'm Anjola, a finance and analytics professional focused on financial data and controls. I came up through accounts payable and audit support, then added an MBA in Business Analytics. I check the numbers, then say what to do about them.</p>
+          <p class="quiet">Dallas, TX. Open to finance, audit, accounting, operations and analytics roles.</p>
+          <div class="cta">
+            <a class="btn" href="#cases">Open the case files</a>
+            <a class="btn alt" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute; (PDF)</a>
+          </div>
+        </div>
+        <div class="mono" aria-hidden="true">
+          <div class="rc rcpt" id="rc">
+            <div class="rh">ANJOLA BALOGUN<small>ANALYTICS &amp; AUDIT SUPPORT</small></div>
+            <div class="dash"></div>
+            <div class="ln"><span>1 MBA, Business Analytics</span><b>2026</b></div>
+            <div class="ln"><span>1 BS, Economics</span><b>2023</b></div>
+            <div class="ln"><span>1 Accounts payable</span><b>2024-25</b></div>
+            <div class="ln"><span>1 Audit support</span><b>2025-26</b></div>
+            <div class="ln"><span>4 Invoice checks in Python</span><b>built</b></div>
+            <div class="dash"></div>
+            <div class="ln tt"><span>OPEN TO</span><b>FINANCE &middot; AUDIT &middot; DATA</b></div>
+            <div class="barcode"></div>
+            <div class="ty">THANK YOU FOR READING</div>
+            <span class="stamp">TIES OUT</span>
+          </div>
+        </div>
+      </div>
+
+      <ul class="index" aria-label="Contents">
+        <li><a href="#cases"><span class="ref" aria-hidden="true">02</span><b>Case files</b><span class="d">An invoice audit lab you can play, and a retail profitability study</span></a></li>
+        <li><a href="#background"><span class="ref" aria-hidden="true">03</span><b>Notes from the analyst</b><span class="d">Accounts payable, audit support and an MBA</span></a></li>
+        <li><a href="#evidence"><span class="ref" aria-hidden="true">03</span><b>Skills, with receipts</b><span class="d">Each skill, with where I used it</span></a></li>
+        <li><a href="#contact"><span class="ref" aria-hidden="true">04</span><b>Sign-off</b><span class="d">Say hello, or review my work</span></a></li>
+      </ul>
+      <div class="penrow">
+        <button class="penbtn" id="pen" type="button" aria-pressed="false">Pick up the pen</button>
+        <button class="penbtn clear" id="pen-clear" type="button" hidden>Clear the ticks</button>
+      </div>
+      <div id="pen-layer" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- CASE FILES -->
+  <section class="view" id="v-cases" data-title="Case files | Anjola Balogun" aria-label="Case files">
+    <div class="wrap">
+      <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 02 / 04</span></div>
+      <div class="vbody">
+        <h1 class="vt" id="h-cases" tabindex="-1">Case files</h1>
+        <p class="lede" style="font-size:1.15rem;margin-top:14px">Each one opens as a full case file: the question, the evidence, what I found and what I would do next.</p>
+        <div class="filters" id="cfilters" role="group" aria-label="Filter case files">
+          <button type="button" data-f="all" aria-pressed="true">All</button>
+          <button type="button" data-f="business" aria-pressed="false">Business analysis</button>
+          <button type="button" data-f="data" aria-pressed="false">Data analysis</button>
+          <button type="button" data-f="finance" aria-pressed="false">Finance</button>
+          <button type="button" data-f="demo" aria-pressed="false">Interactive demo</button>
+        </div>
+        <p class="fcount" id="ccount" aria-live="polite">Showing 2 of 2 case files.</p>
+        <div class="cboard" id="cboard"><svg id="cstr" class="csv" aria-hidden="true"></svg>
+        <div class="cgrid">
+          <article class="ccard rcpt" data-cats="finance demo" data-id="lab"><span class="cpin"></span>
+            <div class="rh">CASE FILE 01<small>FINANCE &middot; INTERACTIVE DEMO</small></div>
+            <div class="dash"></div>
+            <div class="ln"><span>ITEM</span><b>Invoice audit lab</b></div>
+            <div class="ln"><span>DATA</span><b>47 synthetic invoices</b></div>
+            <div class="ln"><span>CHECKS</span><b>4</b></div>
+            <div class="ln"><span>FINDINGS</span><b>9</b></div>
+            <div class="dash"></div>
+            <div class="ln tt"><span>STATUS</span><b>COMPLETED</b></div>
+            <p class="note">Mark the invoices you think are wrong, then see what the checks find. Python script included.</p>
+            <div class="barcode"></div>
+            <a class="go" href="#lab">OPEN CASE FILE &rarr;</a>
+          </article>
+          <article class="ccard rcpt" data-cats="data business" data-id="case"><span class="cpin"></span>
+            <div class="rh">CASE FILE 02<small>DATA &middot; BUSINESS ANALYSIS</small></div>
+            <div class="dash"></div>
+            <div class="ln"><span>ITEM</span><b>Superstore</b></div>
+            <div class="ln"><span>SALES</span><b>$12,642,905</b></div>
+            <div class="ln"><span>PROFIT</span><b>$1,469,035</b></div>
+            <div class="ln"><span>MARGIN</span><b>11.62%</b></div>
+            <div class="dash"></div>
+            <div class="ln tt"><span>STATUS</span><b>COMPLETED</b></div>
+            <p class="note">Where a retail business makes money and where it loses it. The page re-checks its own numbers when you ask it to.</p>
+            <div class="barcode"></div>
+            <a class="go" href="#case">OPEN CASE FILE &rarr;</a>
+          </article>
+          <article class="ccard rcpt" data-cats="finance business" data-id="fc"><span class="cpin"></span>
+            <div class="rh">CASE FILE 03<small>FINANCE &middot; BUSINESS ANALYSIS</small></div>
+            <div class="dash"></div>
+            <div class="ln"><span>ITEM</span><b>Forecast model</b></div>
+            <div class="ln"><span>TOOLS</span><b>Excel, Tableau</b></div>
+            <div class="ln"><span>METHOD</span><b>Variance analysis</b></div>
+            <div class="ln"><span>SOURCE</span><b>Historical data</b></div>
+            <div class="dash"></div>
+            <div class="ln tt"><span>STATUS</span><b>IN PROGRESS</b></div>
+            <p class="note">A forecasting and budgeting model with dashboards for scenario analysis. The write-up will be added as the work is completed.</p>
+            <div class="barcode"></div>
+            <a class="go" href="#background">READ THE SUMMARY &rarr;</a>
+          </article>
+          <article class="skr rcpt" id="skr" data-id="skr" aria-labelledby="skr-h"><span class="cpin b"></span>
+            <div class="rh" id="skr-h">SKILLS USED<small>EACH LINE POINTS TO THE CASE FILE THAT PROVES IT</small></div>
+            <div class="dash"></div>
+            <div class="skl">
+              <div class="sk" data-for="case"><b>SQL</b><span>Superstore</span></div>
+              <div class="sk" data-for="case"><b>Excel</b><span>Superstore workbook</span></div>
+              <div class="sk" data-for="case"><b>Tableau</b><span>Superstore dashboard</span></div>
+              <div class="sk" data-for="lab"><b>Python</b><span>ap_checks.py</span></div>
+              <div class="sk" data-for="lab"><b>Exception testing</b><span>invoice lab</span></div>
+              <div class="sk" data-for="fc"><b>Variance analysis</b><span>forecast model, in progress</span></div>
+            </div>
+            <p class="note" style="margin:10px 0 0;text-align:center">Hover a case file to light up its lines. Drag the receipts to rearrange the board.</p>
+          </article>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAB -->
+  <section class="view" id="v-lab" data-title="Invoice audit lab | Anjola Balogun" aria-label="Invoice audit lab">
+    <div class="wrap">
+      <div class="vhead"><a class="back" href="#cases">Back to the case files</a><span class="pg" aria-hidden="true">case file 01</span></div>
+      <div class="vbody">
+        <h1 class="vt" id="h-lab" tabindex="-1">Invoice audit lab: can you spot what the checks catch?</h1>
+        <p class="lede" style="font-size:1.12rem;margin-top:18px">In accounts payable, three things are worth checking every cycle: duplicate invoices, invoices paid late, and amounts that sit just under an approval limit. Below is a made-up ledger of 47 invoices with problems hidden in it.</p>
+        <p class="synth"><b>Synthetic data.</b> I generated this ledger for the demo. The vendors are fictional, and no employer or real vendor data is used.</p>
+        <ol class="steps">
+          <li><span class="ref" aria-hidden="true">1</span>Mark the invoices you think are wrong</li>
+          <li><span class="ref" aria-hidden="true">2</span>Run the checks</li>
+          <li><span class="ref" aria-hidden="true">3</span>Tune them and see what changes</li>
+        </ol>
+
+        <div class="cta" style="margin-top:6px">
+          <button class="btn" id="lab-run" type="button">Run the checks</button>
+          <button class="btn alt" id="lab-reset" type="button">Start over</button>
+          <button class="btn alt" id="lab-tie" type="button">Run the tie-out</button>
+          <span class="pen red" aria-hidden="true">no peeking first</span>
+        </div>
+        <p class="score" id="lab-score" role="status" aria-live="polite">Mark any invoice you think is wrong, then run the checks.</p>
+        <p id="lab-tie-summary" class="tiesum" role="status" aria-live="polite" hidden></p>
+
+        <div class="tune">
+          <h2>Tune the checks</h2>
+          <div class="tgrid">
+            <div><label for="p-win">Possible duplicate: invoice dates within</label><div class="r"><input id="p-win" type="range" min="0" max="14" step="1" value="7"><output id="o-win" for="p-win">7 days</output></div></div>
+            <div><label for="p-limit">Approval limit</label><select id="p-limit"><option value="5000">$5,000</option><option value="10000" selected>$10,000</option><option value="25000">$25,000</option></select></div>
+            <div><label for="p-band">Just under the limit: within</label><div class="r"><input id="p-band" type="range" min="1" max="10" step="1" value="5"><output id="o-band" for="p-band">5%</output></div></div>
+            <div><label for="p-grace">Paid late: grace period</label><div class="r"><input id="p-grace" type="range" min="0" max="10" step="1" value="0"><output id="o-grace" for="p-grace">0 days</output></div></div>
+          </div>
+        </div>
+
+        <table class="sched" style="max-width:520px;margin-top:18px">
+          <caption>Lead schedule: the ledger</caption>
+          <tbody>
+            <tr><th scope="row">Invoices</th><td class="n"><span class="v" id="s-count"></span></td></tr>
+            <tr><th scope="row">Total value</th><td class="n"><span class="v" id="s-total"></span></td></tr>
+            <tr><th scope="row">Flagged invoices</th><td class="n"><span class="v" id="s-fcount"></span></td></tr>
+            <tr><th scope="row">Flagged value</th><td class="n"><span class="v" id="s-fval"></span></td></tr>
+            <tr class="tot"><th scope="row">Share of value flagged</th><td class="n"><span class="v" id="s-share"></span></td></tr>
+          </tbody>
+        </table>
+
+        <ul class="inv" id="inv" aria-label="Invoices"></ul>
+
+        <h2>What each check does</h2>
+        <ul class="checks">
+          <li><b>Exact duplicate:</b> same vendor, same invoice number, same amount.</li>
+          <li><b>Possible duplicate:</b> same vendor and amount, different invoice number, invoice dates close together. A resubmitted invoice often gets a new number.</li>
+          <li><b>Just under limit:</b> an amount below the approval limit but within a few percent of it.</li>
+          <li><b>Paid late:</b> paid after the due date, plus any grace period you allow. Late payments can mean penalties.</li>
+        </ul>
+
+        <h2>Scope and limits</h2>
+        <ul class="checks">
+          <li>The ledger is synthetic and the rules are simple. A real ledger also needs vendor master data, purchase order matching and payment records.</li>
+          <li>A flag is a lead for a person to check, not proof of an error.</li>
+          <li>The duplicate checks compare only vendor, invoice number, amount and date.</li>
+        </ul>
+
+        <div class="learned"><span class="pg" aria-hidden="true">what I learned</span>
+          <h2>What the lab taught me</h2>
+          <ul>
+            <li>Two kinds of duplicate need two kinds of check: an exact match is easy, but a repeat with a changed invoice number only shows up when you compare vendor, amount and date.</li>
+            <li>Thresholds change the answer. Widening the matching window from 7 to 5 days drops the flagged invoices from 12 to 10, so the setting is a judgment call to document, not a detail.</li>
+            <li>A flag is a lead for a person to look at, not proof of an error.</li>
+          </ul>
+        </div>
+
+        <h2>Working papers</h2>
+        <div class="links">
+          <a class="btn sm" href="ap_checks.py" download>Python script</a>
+          <a class="btn sm alt" href="synthetic_invoices.csv" download>Synthetic ledger (CSV)</a>
+        </div>
+        <p class="mute" style="margin-top:10px">The Python script runs the same four checks as this page, with the same settings. Run <code>python3 ap_checks.py</code> next to the CSV.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE FILE -->
+  <section class="view" id="v-case" data-title="Superstore case file | Anjola Balogun" aria-label="Superstore case file">
+    <div class="wrap">
+      <div class="vhead"><a class="back" href="#cases">Back to the case files</a><span class="pg" aria-hidden="true">case file 02</span></div>
+      <div class="vbody">
+        <div class="layout">
+          <div>
+            <h1 class="vt" id="h-case" tabindex="-1">Superstore case file: where does a retail business make and lose money?</h1>
+            <p class="lede" style="font-size:1.12rem;margin-top:18px">How does sales performance compare with profitability across product categories, and where could the business look to improve profit? A Superstore dataset of 51,290 order records, 2011 to 2014. I prepared it in Excel 365, calculated in PostgreSQL and published the dashboard in Tableau Public.</p>
+
+            <div class="hdrstrip" aria-label="Workpaper header">
+              <div><small>Prepared for</small><b>You, the reader</b></div>
+              <div><small>Subject</small><b>Superstore sales and profit</b></div>
+              <div><small>Prepared by</small><b>A. Balogun</b></div>
+              <div><small>Period covered</small><b>2011 to 2014</b></div>
+              <div><small>Records</small><b>51,290</b></div>
+              <div><small>Tools</small><b>Excel, PostgreSQL, Tableau</b></div>
+            </div>
+
+            <div class="cta" style="margin-top:0">
+              <button class="btn" id="run" type="button">Run the tie-out</button>
+              <span class="pen red" aria-hidden="true">it checks its own work</span>
+            </div>
+            <p id="tie-summary" class="tiesum" role="status" aria-live="polite" hidden></p>
+
+            <div class="legend legend-top" aria-label="Tickmark legend">
+              <h2>Tickmarks</h2>
+              <ul>
+                <li><span class="sym"><svg viewBox="0 0 60 50" fill="none" stroke="#B91F18" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 28 L22 43 L54 6"/></svg></span><span><b>Recomputed.</b> Rebuilt from other numbers on this page.</span></li>
+                <li><span class="sym r" aria-hidden="true">R</span><span><b>Agreed to the report.</b> Matches my written report. The page lacks the inputs to rebuild it.</span></li>
+                <li><span class="sym" aria-hidden="true">≈</span><span><b>Rounding.</b> Off by cents because the source figures are rounded.</span></li>
+              </ul>
+            </div>
+
+            <h2>Lead schedule</h2>
+            <table class="sched" id="t-lead" style="max-width:640px">
+              <thead><tr><th scope="col">Measure</th><th scope="col" class="n">Amount</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Sales</th><td class="n" data-k="sales">12,642,905.00</td></tr>
+                <tr><th scope="row">Profit</th><td class="n" data-k="profit">1,469,034.82</td></tr>
+                <tr class="tot"><th scope="row">Profit margin</th><td class="n" data-k="margin">11.62%</td></tr>
+              </tbody>
+            </table>
+            <p class="mute">About 12 cents of every sales dollar. The rest of this page shows where it went.</p>
+
+            <div class="tol">
+              <label for="tol">Set the tolerance: flag any margin below</label>
+              <div class="row">
+                <input id="tol" type="range" min="-150" max="30" step="1" value="0" aria-describedby="tol-count">
+                <output id="tol-out" for="tol">0%</output>
+                <span class="pen" aria-hidden="true">try 10%</span>
+              </div>
+              <p class="count" id="tol-count" aria-live="polite"></p>
+            </div>
+
+            <table class="sched" id="t-cat">
+              <caption>By category</caption>
+              <thead><tr><th scope="col">Category</th><th scope="col" class="n">Sales</th><th scope="col" class="n">Profit</th><th scope="col" class="n">Margin</th></tr></thead>
+              <tbody>
+                <tr data-flag><th scope="row">Furniture</th><td class="n" data-k="sales">4,110,884</td><td class="n" data-k="profit">286,782.25</td><td class="n m" data-k="margin">6.98%</td></tr>
+                <tr data-flag><th scope="row">Office Supplies</th><td class="n" data-k="sales">3,787,330</td><td class="n" data-k="profit">518,473.83</td><td class="n m" data-k="margin">13.69%</td></tr>
+                <tr data-flag><th scope="row">Technology</th><td class="n" data-k="sales">4,744,691</td><td class="n" data-k="profit">663,778.73</td><td class="n m" data-k="margin">13.99%</td></tr>
+              </tbody>
+            </table>
+
+            <table class="sched" id="t-sub">
+              <caption>By subcategory (the ones I reviewed)</caption>
+              <thead><tr><th scope="col">Subcategory</th><th scope="col" class="n">Sales</th><th scope="col" class="n">Profit</th><th scope="col" class="n">Margin</th></tr></thead>
+              <tbody>
+                <tr data-flag><th scope="row">Copiers</th><td class="n" data-k="sales">1,509,439</td><td class="n" data-k="profit">258,567.55</td><td class="n m" data-k="margin">17.13%</td></tr>
+                <tr data-flag><th scope="row">Phones</th><td class="n" data-k="sales">1,706,874</td><td class="n" data-k="profit">216,717.01</td><td class="n m" data-k="margin">12.70%</td></tr>
+                <tr data-flag><th scope="row">Paper</th><td class="n" data-k="sales">244,307</td><td class="n" data-k="profit">59,207.68</td><td class="n m" data-k="margin">24.23%</td></tr>
+                <tr data-flag><th scope="row">Tables</th><td class="n" data-k="sales">757,034</td><td class="n neg" data-k="profit">(64,083.39)</td><td class="n m neg" data-k="margin">(8.47%)</td></tr>
+              </tbody>
+            </table>
+
+            <table class="sched" id="t-disc">
+              <caption>Furniture, by discount level</caption>
+              <thead><tr><th scope="col">Discount</th><th scope="col" class="n">Profit</th><th scope="col" class="n">Margin</th></tr></thead>
+              <tbody>
+                <tr data-flag><th scope="row">0%</th><td class="n" data-k="profit">465,612.96</td><td class="n m" data-k="margin">24.19%</td></tr>
+                <tr data-flag><th scope="row">20%</th><td class="n" data-k="profit">26,574.16</td><td class="n m" data-k="margin">4.59%</td></tr>
+                <tr data-flag><th scope="row">30%</th><td class="n neg" data-k="profit">(20,011.89)</td><td class="n m neg" data-k="margin">(10.81%)</td></tr>
+                <tr data-flag><th scope="row">40%</th><td class="n neg" data-k="profit">(61,464.32)</td><td class="n m neg" data-k="margin">(29.72%)</td></tr>
+                <tr data-flag><th scope="row">50%</th><td class="n neg" data-k="profit">(47,347.33)</td><td class="n m neg" data-k="margin">(54.26%)</td></tr>
+                <tr data-flag><th scope="row">70%</th><td class="n neg" data-k="profit">(67,210.92)</td><td class="n m neg" data-k="margin">(146.08%)</td></tr>
+              </tbody>
+            </table>
+
+            <figure class="cfig" id="chart-disc">
+              <figcaption>Furniture margin by discount level <span class="pen red" aria-hidden="true">where it leaks</span></figcaption>
+              <div class="cplot"><div class="cbars"></div></div>
+              <div class="cx" aria-hidden="true"></div>
+            </figure>
+
+            <h2>Findings</h2>
+            <div class="finds">
+              <div class="find">
+                <div><small>Observation</small><p>With no discount, Furniture had a margin of 24.19%. <span class="claim" data-claim="disc">Every discount level from 30% upward in the table lost money overall</span>.</p></div>
+                <div><small>Why it matters</small><p>Higher discounts go together with lower profit. That's an association, not proof the discounts caused it. Product mix, cost and order size could explain some of it.</p></div>
+                <div><small>What I'd do</small><p>Look at how Furniture discounts get approved where margins went negative, and weigh the margin against the extra sales.</p></div>
+              </div>
+              <div class="find">
+                <div><small>Observation</small><p><span class="claim" data-claim="tables">Tables was the only reviewed subcategory with a loss</span>: 64,083.39 on sales of 757,034.</p></div>
+                <div><small>Why it matters</small><p>A loss can hide inside a healthy category total. These numbers show where to look, not why.</p></div>
+                <div><small>What I'd do</small><p>Break Tables down by product, discount, region, customer segment and time period. Check costs, product mix and shipping.</p></div>
+              </div>
+              <div class="find">
+                <div><small>Observation</small><p><span class="claim" data-claim="furn">Furniture sold more than Office Supplies but earned less profit</span>. <span class="claim" data-claim="tech">Technology led on sales, profit and margin</span>.</p></div>
+                <div><small>Why it matters</small><p>Sales alone don't tell you how a category is doing.</p></div>
+                <div><small>What I'd do</small><p>Track margin next to sales. Before changing pricing or discount policy, compare similar products and check how many orders sit behind each level.</p></div>
+              </div>
+            </div>
+
+            <h2>My first move</h2>
+            <p>Review every Furniture order discounted 30% or more. Every level from there lost money in this data, so that's where I'd start looking for the cause.</p>
+
+            <h2>Scope and limits</h2>
+            <ul class="limits">
+              <li>Exploratory analysis. The link between discounts and profit is an association.</li>
+              <li>I used only the fields in the dataset. It covers 2011 to 2014, so it may not reflect today or other businesses.</li>
+              <li>The dashboard covers category-level sales, profit and margin. Trends over time, regions and the cause of the Tables loss need more analysis.</li>
+            </ul>
+
+            <div class="learned"><span class="pg" aria-hidden="true">what I learned</span>
+              <h2>What this case taught me</h2>
+              <ul>
+                <li>Averages hide the story. Furniture's 6.98% overall margin hides discount levels that lose money, which only shows when you break it down.</li>
+                <li>A pattern is not a cause. Higher discounts go with lower margins here, but product mix and order size could explain part of it.</li>
+                <li>Re-checking my own numbers found a one-cent rounding difference, which is exactly the kind of thing worth knowing before someone else finds it.</li>
+              </ul>
+            </div>
+
+            <h2>Working papers</h2>
+            <div class="links">
+              <a class="btn sm" href="https://public.tableau.com/views/SalesandProfitabilityAnalysis_17928000788560/Dashboard1?%3Alanguage=en-US&%3Asid=&%3Aredirect=auth&%3Adisplay_count=n&%3Aorigin=viz_share_link" target="_blank" rel="noopener">Tableau dashboard</a>
+              <a class="btn sm alt" href="Sales_Profitability_Report.pdf" target="_blank" rel="noopener">Report (PDF)</a>
+              <a class="btn sm alt" href="sales_profitability_analysis.sql" target="_blank" rel="noopener">SQL</a>
+            </div>
+            <details class="more"><summary>More files</summary>
+              <div class="links"><a class="btn sm alt" href="SuperStoreOrders_Cleaned.xlsx" download>Cleaned workbook</a><a class="btn sm alt" href="https://github.com/anjola3003/anjola-portfolio/blob/main/README.md" target="_blank" rel="noopener">README</a></div>
+            </details>
+          </div>
+
+          <aside class="legend-side" aria-label="Tickmark legend">
+            <div class="legend">
+              <h2>Tickmarks</h2>
+              <ul>
+                <li><span class="sym"><svg viewBox="0 0 60 50" fill="none" stroke="#B91F18" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 28 L22 43 L54 6"/></svg></span><span><b>Recomputed.</b> Rebuilt from other numbers on this page.</span></li>
+                <li><span class="sym r" aria-hidden="true">R</span><span><b>Agreed to the report.</b> Matches my written report. The page lacks the inputs to rebuild it.</span></li>
+                <li><span class="sym" aria-hidden="true">≈</span><span><b>Rounding.</b> Off by cents because the source figures are rounded.</span></li>
+              </ul>
+              <p class="mute" style="font-size:.88rem;margin:14px 0 0">Run the tie-out, then click any tickmark to see how it was checked.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCE -->
+  <section class="view" id="v-evidence" data-title="Skills | Anjola Balogun" aria-label="Evidence">
+    <div class="wrap">
+      <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 03 / 04</span></div>
+      <div class="vbody">
+        <h1 class="vt" id="h-evidence" tabindex="-1">Skills, with receipts</h1>
+        <p class="lede" style="font-size:1.12rem;margin-top:18px">Every skill below points to where I used it, with the work to open where it's public.</p>
+        <div class="filters" role="group" aria-label="Filter skills">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="finance" aria-pressed="false">Finance and controls</button>
+          <button type="button" data-filter="data" aria-pressed="false">Data and tools</button>
+          <button type="button" data-filter="comms" aria-pressed="false">Communication</button>
+        </div>
+        <p class="fcount" id="ev-count" aria-live="polite">Showing 12 of 12 skills.</p>
+        <table class="sched idx">
+          <thead><tr><th scope="col">Skill</th><th scope="col">Where I used it</th></tr></thead>
+          <tbody>
+            <tr data-cat="data"><th scope="row">SQL (PostgreSQL)</th><td class="n"><a href="sales_profitability_analysis.sql" target="_blank" rel="noopener">The SQL file</a>: KPIs, category and subcategory comparisons, the discount analysis</td></tr>
+            <tr data-cat="data"><th scope="row">Python</th><td class="n"><a href="ap_checks.py" download>ap_checks.py</a>: the <a href="#lab">invoice audit lab</a>'s checks, runnable from the command line</td></tr>
+            <tr data-cat="data finance"><th scope="row">Excel</th><td class="n"><a href="SuperStoreOrders_Cleaned.xlsx" download>The cleaned workbook</a>, and invoice review at <a href="#background">Bethesda Inc.</a></td></tr>
+            <tr data-cat="data"><th scope="row">Tableau</th><td class="n"><a href="https://public.tableau.com/views/SalesandProfitabilityAnalysis_17928000788560/Dashboard1?%3Alanguage=en-US&%3Asid=&%3Aredirect=auth&%3Adisplay_count=n&%3Aorigin=viz_share_link" target="_blank" rel="noopener">The published dashboard</a>, and the forecasting model's dashboards</td></tr>
+            <tr data-cat="finance"><th scope="row">QuickBooks</th><td class="n"><a href="#background">Bethesda Inc.</a>: processed and reviewed vendor invoices in QuickBooks and Excel</td></tr>
+            <tr data-cat="finance"><th scope="row">Reconciliation</th><td class="n"><a href="#background">Bethesda Inc.</a>: data-driven reconciliations, investigating and resolving discrepancies</td></tr>
+            <tr data-cat="finance"><th scope="row">Duplicate and exception testing</th><td class="n"><a href="#lab">The invoice audit lab</a>: duplicates, late payments and amounts just under a limit</td></tr>
+            <tr data-cat="finance data"><th scope="row">Financial analysis</th><td class="n"><a href="#case">Superstore case file</a>, and <a href="#background">Bethesda Inc.</a></td></tr>
+            <tr data-cat="finance"><th scope="row">Audit support</th><td class="n"><a href="#background">NIMASA</a>: working papers, compliance documentation and records for internal audit</td></tr>
+            <tr data-cat="finance"><th scope="row">Process improvement</th><td class="n"><a href="#background">Bethesda Inc.</a>: payment scheduling, and an automated data entry workflow</td></tr>
+            <tr data-cat="comms"><th scope="row">Stakeholder communication</th><td class="n"><a href="Sales_Profitability_Report.pdf" target="_blank" rel="noopener">The report (PDF)</a>, and partnering with procurement and finance at <a href="#background">Bethesda Inc.</a></td></tr>
+          </tbody>
+        </table>
+        <p class="mute">Also in my toolkit: R.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="view" id="v-background" data-title="Notes from the analyst | Anjola Balogun" aria-label="Background">
+    <div class="wrap">
+      <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 03 / 04</span></div>
+      <div class="vbody">
+        <h1 class="vt" id="h-background" tabindex="-1">Notes from the analyst</h1>
+        <p class="lede" style="font-size:1.12rem;margin-top:18px">I studied economics, worked in accounts payable and audit support, then completed an MBA in Business Analytics. My focus is accuracy, process improvement and clear financial reporting.</p>
+        <blockquote class="inmy" style="margin-left:0">Economics taught me to ask why numbers move. Accounts payable taught me to check them. Analytics is where I get to do both.<small>in my own words</small></blockquote>
+
+        <h2>Experience</h2>
+        <div class="tl">
+          <div class="job"><div class="when">Sept 2025 to Aug 2026</div><div class="what"><b>Audit Assistant</b>Nigerian Maritime Administration and Safety Agency, Lagos, Nigeria
+            <ul>
+              <li>Maintained financial and operational records supporting internal audit and control activities across departments.</li>
+              <li>Prepared working papers and compliance documentation, coordinating cross-departmental document requests to support accurate reporting.</li>
+              <li>Handled confidential financial and operational records securely, in line with organizational procedures.</li>
+            </ul></div></div>
+          <div class="job"><div class="when">Mar 2024 to Aug 2025</div><div class="what"><b>Accounts Payable and Financial Analysis Specialist</b>Bethesda Inc., Lewisville, TX
+            <ul>
+              <li>Processed and reviewed high monthly volumes of vendor invoices in QuickBooks and Excel, maintaining full compliance with payment procedures.</li>
+              <li>Performed data-driven reconciliations, investigating and resolving discrepancies that reduced outstanding liabilities.</li>
+              <li>Optimized payment scheduling, reducing late payment penalties.</li>
+              <li>Designed and implemented an automated data entry workflow that shortened invoice processing time.</li>
+              <li>Partnered with procurement and finance teams to analyze vendor transactions and recommend process improvements that increased cross-departmental efficiency.</li>
+            </ul></div></div>
+        </div>
+
+        <h2>Education</h2>
+        <div class="tl">
+          <div class="job"><div class="when">Completed May 2026</div><div class="what"><b>MBA, Business Analytics</b>Texas A&amp;M University-Commerce</div></div>
+          <div class="job"><div class="when">Completed Dec 2023</div><div class="what"><b>BS, Economics, minor in Business Administration</b>University of Texas at Arlington</div></div>
+        </div>
+
+        <h2>Certifications</h2>
+        <div class="tl">
+          <div class="job"><div class="when">Coursera</div><div class="what"><b>Google Data Analytics Professional Certificate</b></div></div>
+          <div class="job"><div class="when">Coursera</div><div class="what"><b>Introduction to Data Engineering</b></div></div>
+        </div>
+
+        <h2>Projects</h2>
+        <div class="tl">
+          <div class="job"><div class="when">Python, JavaScript</div><div class="what"><b>Invoice Audit Lab</b>Built a Python script and an interactive web demo that test a 47-invoice synthetic ledger for exact duplicates, possible duplicates, amounts just under an approval limit and late payments. The thresholds are adjustable, and each flag is treated as a lead for review rather than proof of error. <a href="#lab">Open the case file</a>.</div></div>
+          <div class="job"><div class="when">SQL, Excel</div><div class="what"><b>Sales and Profitability Analysis</b>Analyzed sales data in SQL and Excel to compare profit margins by category, sub-category and discount level. Found that Furniture earned a 6.98% margin against about 14% for Office Supplies and Technology, and lost money at discounts of 30% or more. <a href="#case">Read the case file</a>.</div></div>
+          <div class="job"><div class="when">Excel, Tableau &middot; in progress</div><div class="what"><b>Financial Forecasting and Budgeting Model</b>Building a forecasting and budgeting model from historical financial data to analyze revenue and expense trends, with Tableau dashboards for scenario analysis, and applying variance analysis to compare projected and historical performance. Work in progress.</div></div>
+        </div>
+
+        <p style="margin-top:28px"><a class="btn" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">Download my résumé (PDF)</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view" id="v-contact" data-title="Sign-off | Anjola Balogun" aria-label="Sign-off">
+    <div class="wrap">
+      <div class="vhead"><a class="back" href="#home">Back to the cover</a><span class="pg" aria-hidden="true">page 04 / 04</span></div>
+      <div class="vbody">
+        <h1 class="vt" id="h-contact" tabindex="-1">Sign-off</h1>
+        <p class="lede" style="font-size:1.12rem;margin-top:18px">I'm open to finance, audit, accounting, operations and analytics roles. Review the work, sign off below, and message me.</p>
+        <div class="sign">
+          <div class="line"><span>Prepared by</span><div class="field signed">Anjola Balogun</div></div>
+          <div class="line"><span>Reviewed by</span><div class="field" id="rev-name" aria-live="polite"></div></div>
+          <div class="line"><span>Date</span><div class="field" id="rev-date"></div></div>
+          <form id="signform" novalidate>
+            <label for="rev">Your name (optional)</label>
+            <input id="rev" name="name" type="text" autocomplete="name" maxlength="40" placeholder="Type it to sign the page">
+            <div id="send-box" hidden>
+              <label for="rev-email" style="margin-top:12px">Your email (optional, so I can reply)</label>
+              <input id="rev-email" name="email" type="email" autocomplete="email" maxlength="80" placeholder="you@example.com">
+              <label for="rev-msg" style="margin-top:12px">A note (optional)</label>
+              <textarea id="rev-msg" name="message" rows="3" maxlength="500" placeholder="What stood out, or what would you check first?"></textarea>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+              <div class="cta" style="margin-top:12px"><button class="btn" type="submit" id="send-btn">Sign and send</button></div>
+              <p class="sent" id="sent" role="status" aria-live="polite" hidden></p>
+            </div>
+            <p class="fine" id="sign-fine">This stays in your browser. Nothing is stored or sent.</p>
+          </form>
+          <div class="cta">
+            <a class="btn" href="https://www.linkedin.com/in/anjola-balogun-mba-474954184/" target="_blank" rel="noopener" style="color:var(--paper)">Message me on LinkedIn</a>
+            <a class="btn alt" href="mailto:anjola.balogun@yahoo.co.uk">Email me</a>
+            <a class="btn alt" href="Anjola_Balogun_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 Anjola Balogun &middot; Analysis, insight, impact</div></footer>
+
+<script id="ledger-gen">
+function makeLedger(){
+  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+  var r=rng(20251);
+  var V=[["Brazos Paper Co","BP",180,1900],["Trinity Janitorial","TJ",420,2600],["Cedar Ridge IT Services","CR",900,7400],["Mesquite Printing","MP",260,3100],["Oak Cliff Catering","OC",350,2800],["Redbird Couriers","RC",120,1500],["Pecan Street Equipment","PS",1200,8600],["Bluebonnet Facilities","BF",800,6200]];
+  function day(n){return new Date(Date.UTC(2025,0,2+n)).toISOString().slice(0,10);}
+  var used={}, base=[], i;
+  for(i=0;i<42;i++){
+    var v=V[Math.floor(r()*V.length)], n=Math.floor(r()*150);
+    var amt=Math.round((v[2]+r()*(v[3]-v[2]))*100)/100;
+    var no; do{no=v[1]+"-"+(1000+Math.floor(r()*9000));}while(used[no]); used[no]=1;
+    base.push({vendor:v[0],pre:v[1],inv:no,n:n,amount:amt,paidBefore:Math.floor(r()*8)});
+  }
+  var rows=base.map(function(b){return {vendor:b.vendor,inv:b.inv,date:day(b.n),due:day(b.n+30),paid:day(b.n+30-b.paidBefore),amount:b.amount};});
+  [[3,4],[17,9],[22,12],[34,21]].forEach(function(p){var b=base[p[0]];rows[p[0]].paid=day(b.n+30+p[1]);});
+  var e=base[5];  rows.push({vendor:e.vendor,inv:e.inv,date:day(e.n),due:day(e.n+30),paid:rows[5].paid,amount:e.amount});
+  var a=base[12]; rows.push({vendor:a.vendor,inv:a.pre+"-"+(parseInt(a.inv.slice(3),10)+1),date:day(a.n+3),due:day(a.n+33),paid:day(a.n+33-2),amount:a.amount});
+  var b2=base[27];rows.push({vendor:b2.vendor,inv:b2.inv+"A",date:day(b2.n+6),due:day(b2.n+36),paid:day(b2.n+36-3),amount:b2.amount});
+  rows.push({vendor:"Cedar Ridge IT Services",inv:"CR-7310",date:day(60),due:day(90),paid:day(86),amount:9950.00});
+  rows.push({vendor:"Pecan Street Equipment",inv:"PS-6288",date:day(95),due:day(125),paid:day(121),amount:9780.25});
+  rows.sort(function(x,y){return x.date<y.date?-1:x.date>y.date?1:x.inv<y.inv?-1:x.inv>y.inv?1:0;});
+  rows.forEach(function(x,k){x.id=k+1;});
+  return rows;
+}
+function msd(s){return Date.parse(s+"T00:00:00Z");}
+function findings(rows,P){
+  var out=[],i,j,byKey={},exact={};
+  rows.forEach(function(r){var k=r.vendor+"|"+r.inv+"|"+r.amount.toFixed(2);(byKey[k]=byKey[k]||[]).push(r.id);});
+  Object.keys(byKey).forEach(function(k){var g=byKey[k];if(g.length>1){out.push({type:"exact",ids:g.slice()});for(i=0;i<g.length;i++)for(j=i+1;j<g.length;j++)exact[g[i]+"-"+g[j]]=1;}});
+  for(i=0;i<rows.length;i++)for(j=i+1;j<rows.length;j++){
+    var a=rows[i],b=rows[j];
+    if(a.vendor===b.vendor&&a.amount.toFixed(2)===b.amount.toFixed(2)&&a.inv!==b.inv&&Math.abs(msd(a.date)-msd(b.date))/864e5<=P.win&&!exact[a.id+"-"+b.id]) out.push({type:"possible",ids:[a.id,b.id]});
+  }
+  var lo=P.limit*(1-P.band/100);
+  rows.forEach(function(r){if(r.amount>=lo&&r.amount<P.limit)out.push({type:"limit",ids:[r.id]});});
+  rows.forEach(function(r){if((msd(r.paid)-msd(r.due))/864e5>P.grace)out.push({type:"late",ids:[r.id]});});
+  return out;
+}
+</script>
+<script>
+(function(){
+"use strict";
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- views ---------- */
+var VIEWS=["home","cases","lab","case","evidence","background","contact"];
+var current=null;
+var penOff=function(){};
+function show(name,userNav){
+  VIEWS.forEach(function(v){
+    var el=$("#v-"+v); if(!el) return;
+    el.classList.toggle("on",v===name);
+  });
+  $$("[data-nav]").forEach(function(a){
+    if(a.getAttribute("data-nav")===((name==="lab"||name==="case")?"cases":name)) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+  });
+  var sec=$("#v-"+name); document.title=sec.getAttribute("data-title");
+  if(name!=="home") penOff();
+  if(current!==name){
+    window.scrollTo(0,0);
+    if(userNav){var h=$("#h-"+name); if(h) h.focus({preventScroll:true});}
+  }
+  current=name;
+}
+function route(userNav){
+  var h=(location.hash||"").replace(/^#\/?/,"");
+  if(h==="") h="home";
+  if(VIEWS.indexOf(h)<0){
+    if(document.getElementById(h)) return;   /* in-page anchor such as the skip link */
+    h="home";
+  }
+  show(h,userNav);
+}
+window.addEventListener("hashchange",function(){closeTk();route(true);});
+/* In sandboxed previews the address bar may not change, so open views directly on click. */
+document.addEventListener("click",function(e){
+  var a=e.target.closest&&e.target.closest('a[href^="#"]'); if(!a) return;
+  var n=a.getAttribute("href").slice(1);
+  if(VIEWS.indexOf(n)<0) return;
+  e.preventDefault(); closeTk();
+  try{ if(location.hash!=="#"+n) history.pushState(null,"","#"+n); }catch(x){}
+  show(n,true);
+});
+window.addEventListener("popstate",function(){closeTk();route(true);});
+
+/* ---------- figures ---------- */
+$$("td.n[data-k]").forEach(function(td){
+  var v=document.createElement("span"); v.className="v"; v.textContent=td.textContent.trim();
+  td.textContent=""; td.appendChild(v);
+});
+function num(txt){
+  var t=String(txt).trim(), neg=/^\(.*\)$/.test(t);
+  var n=parseFloat(t.replace(/[(),%\s]/g,"")); return neg?-n:n;
+}
+function val(td){return num($(".v",td).textContent);}
+function nf(v,d){return Math.abs(v).toLocaleString("en-US",{minimumFractionDigits:d,maximumFractionDigits:d});}
+
+/* ---------- Superstore chart (built from the discount table above) ---------- */
+var cbars=[];
+(function(){
+  var host=$("#chart-disc"), d=rows("t-disc"), ms=d.map(function(r){return r.margin;});
+  var maxPos=Math.max.apply(null,ms.map(function(m){return Math.max(m,0);})), maxNeg=Math.max.apply(null,ms.map(function(m){return Math.max(-m,0);}));
+  var range=maxPos+maxNeg, zt=maxPos/range*100, bars=$(".cbars",host), xs=$(".cx",host);
+  var zl=document.createElement("div"); zl.className="czero"; zl.style.top=zt+"%"; bars.appendChild(zl);
+  d.forEach(function(r){
+    var h=Math.abs(r.margin)/range*100, col=document.createElement("div"); col.className="cbar";
+    var f=document.createElement("div"); f.className="f"; f.style.height=h+"%";
+    if(r.margin>=0) f.style.bottom=(100-zt)+"%"; else f.style.top=zt+"%";
+    var t=document.createElement("span"); t.className="t"; t.textContent=(r.margin<0?"-":"")+nf(r.margin,2)+"%";
+    if(r.margin>=0){t.style.bottom="100%";t.style.marginBottom="3px";}else{t.style.top="100%";t.style.marginTop="3px";}
+    f.appendChild(t); col.appendChild(f); bars.appendChild(col); cbars.push({el:col,m:r.margin});
+    var x=document.createElement("span"); x.textContent=r.name+" off"; xs.appendChild(x);
+  });
+  var plot=$(".cplot",host); plot.setAttribute("role","img");
+  plot.setAttribute("aria-label","Furniture profit margin by discount level: "+d.map(function(r){return r.name+" off, "+(r.margin<0?"minus ":"")+nf(r.margin,2)+" percent";}).join("; ")+".");
+})();
+
+/* ---------- tolerance slider ---------- */
+var tol=$("#tol"), tolOut=$("#tol-out"), tolCount=$("#tol-count");
+var flagRows=$$("tr[data-flag]");
+function flag(){
+  var t=+tol.value, n=0;
+  flagRows.forEach(function(tr){
+    var m=val($("td.m",tr)), on=m<t; tr.classList.toggle("flag",on); if(on) n++;
+  });
+  cbars.forEach(function(c){c.el.classList.toggle("low",c.m<t);});
+  tolOut.textContent=t+"%";
+  tol.setAttribute("aria-valuetext",t+" percent");
+  tolCount.textContent=n===0?"Nothing falls below "+t+"%. Slide it up to see what starts to show.":n+(n===1?" margin falls":" margins fall")+" below "+t+"%.";
+}
+tol.addEventListener("input",flag); flag();
+
+/* ---------- the tie-out: every check is computed from the numbers shown ---------- */
+function rows(id){
+  return $$("#"+id+" tbody tr").map(function(tr){
+    var o={tr:tr,name:$("th",tr).textContent};
+    $$("td[data-k]",tr).forEach(function(td){o[td.getAttribute("data-k")]=val(td);o[td.getAttribute("data-k")+"El"]=td;});
+    return o;
+  });
+}
+function r2(x){return Math.round((x+Number.EPSILON)*100)/100;}
+var TICK_SVG='<svg viewBox="0 0 60 50" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 28 L22 43 L54 6"/></svg>';
+function buildChecks(){
+  var out=[], cat=rows("t-cat"), sub=rows("t-sub"), disc=rows("t-disc"), lead=rows("t-lead");
+  var sumS=cat.reduce(function(a,r){return a+r.sales;},0), sumP=r2(cat.reduce(function(a,r){return a+r.profit;},0));
+  var leadS=lead[0].sales, leadP=lead[1].profit, leadM=lead[2].margin;
+
+  out.push({el:lead[0].salesEl,kind:"ok",pass:sumS===leadS,title:"Footed",
+    msg:"Furniture + Office Supplies + Technology = "+nf(sumS,0)+". Stated total: "+nf(leadS,2)+". "+(sumS===leadS?"Agrees.":"Does not agree.")});
+  var d=r2(leadP-sumP), same=d===0;
+  out.push({el:lead[1].profitEl,kind:same?"ok":"round",pass:Math.abs(d)<=0.05,title:same?"Footed":"Rounding difference",
+    msg:"The three categories add to "+nf(sumP,2)+". Stated total: "+nf(leadP,2)+". "+(same?"Agrees.":"Difference of "+nf(d,2)+", from rounding in the source figures. Not material.")});
+  var mm=r2(leadP/leadS*100);
+  out.push({el:lead[2].marginEl,kind:"ok",pass:mm===leadM,title:"Recomputed",
+    msg:nf(leadP,2)+" ÷ "+nf(leadS,2)+" = "+mm.toFixed(2)+"%. Stated: "+leadM.toFixed(2)+"%."});
+
+  function marginChecks(list){
+    list.forEach(function(r){
+      var calc=r2(r.profit/r.sales*100);
+      out.push({el:r.marginEl,kind:"ok",pass:calc===r.margin,title:"Recomputed",
+        msg:r.name+": "+(r.profit<0?"-":"")+nf(r.profit,2)+" ÷ "+nf(r.sales,0)+" = "+(calc<0?"-":"")+nf(calc,2)+"%. Stated: "+(r.margin<0?"-":"")+nf(r.margin,2)+"%."});
+    });
+  }
+  marginChecks(cat); marginChecks(sub);
+  disc.forEach(function(r){
+    out.push({el:r.profitEl,kind:"agree",pass:true,title:"Agreed to the report",msg:"Furniture at "+r.name+" off, profit "+(r.profit<0?"-":"")+nf(r.profit,2)+". Matches section 6.3 of my report. The report doesn't give sales by discount level, so this page can't rebuild it."});
+    out.push({el:r.marginEl,kind:"agree",pass:true,title:"Agreed to the report",msg:"Furniture at "+r.name+" off, margin "+(r.margin<0?"-":"")+nf(r.margin,2)+"%. Matches section 6.3 of my report. Not rebuilt here, for the same reason."});
+  });
+  var hi=disc.filter(function(r){return parseFloat(r.name)>=30;});
+  out.push({el:$('[data-claim="disc"]'),kind:"ok",pass:hi.length>0&&hi.every(function(r){return r.profit<0;}),title:"Recomputed",
+    msg:"Levels at 30% and above: "+hi.map(function(r){return r.name+" ("+(r.profit<0?"-":"")+nf(r.profit,2)+")";}).join(", ")+". All negative."});
+  var losers=sub.filter(function(r){return r.profit<0;});
+  out.push({el:$('[data-claim="tables"]'),kind:"ok",pass:losers.length===1&&losers[0].name==="Tables",title:"Recomputed",
+    msg:"Of the "+sub.length+" subcategories above, "+losers.length+" has negative profit: "+losers.map(function(r){return r.name;}).join(", ")+"."});
+  var f=cat.filter(function(r){return r.name==="Furniture"})[0], o=cat.filter(function(r){return r.name==="Office Supplies"})[0];
+  out.push({el:$('[data-claim="furn"]'),kind:"ok",pass:f.sales>o.sales&&f.profit<o.profit,title:"Recomputed",
+    msg:"Sales: Furniture "+nf(f.sales,0)+" vs Office Supplies "+nf(o.sales,0)+". Profit: "+nf(f.profit,2)+" vs "+nf(o.profit,2)+"."});
+  function top(k){return cat.slice().sort(function(a,b){return b[k]-a[k];})[0].name;}
+  out.push({el:$('[data-claim="tech"]'),kind:"ok",pass:top("sales")==="Technology"&&top("profit")==="Technology"&&top("margin")==="Technology",title:"Recomputed",
+    msg:"Highest sales: "+top("sales")+". Highest profit: "+top("profit")+". Highest margin: "+top("margin")+"."});
+  return out;
+}
+
+var openTk=null;
+function closeTk(){if(openTk){openTk.setAttribute("aria-expanded","false");openTk=null;}}
+function placeNote(btn){
+  var n=$(".tn",btn); n.classList.remove("left");
+  var r=btn.getBoundingClientRect(); if(r.left+300>window.innerWidth-12) n.classList.add("left");
+}
+function addTick(c){
+  var btn=document.createElement("button"); btn.type="button"; btn.className="tk"+(c.kind==="agree"?" r":"");
+  btn.setAttribute("data-tk","1"); btn.setAttribute("aria-expanded","false");
+  btn.setAttribute("aria-label","Tickmark: "+(c.pass?c.title:"Check failed")+". "+c.msg);
+  if(!c.pass) btn.innerHTML='<span class="g" aria-hidden="true">!</span>';
+  else if(c.kind==="ok") btn.innerHTML=TICK_SVG;
+  else if(c.kind==="agree") btn.innerHTML='<span class="g" aria-hidden="true">R</span>';
+  else btn.innerHTML='<span class="g" aria-hidden="true">≈</span>';
+  var note=document.createElement("span"); note.className="tn"; note.setAttribute("role","note");
+  var b=document.createElement("b"); b.textContent=c.pass?c.title:"Does not agree"; note.appendChild(b); note.appendChild(document.createTextNode(c.msg));
+  btn.appendChild(note);
+  btn.addEventListener("click",function(e){
+    e.stopPropagation();
+    var was=btn.getAttribute("aria-expanded")==="true"; closeTk();
+    if(!was){btn.setAttribute("aria-expanded","true");openTk=btn;placeNote(btn);}
+  });
+  var host=c.el, v=$(".v",host)||host;
+  v.insertAdjacentElement("afterend",btn);
+}
+document.addEventListener("click",function(e){if(openTk&&!openTk.contains(e.target)) closeTk();});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&openTk){var b=openTk;closeTk();b.focus();}});
+
+function runTie(btn,summary,build){
+  closeTk();
+  var scope=btn.closest(".view");
+  $$("[data-tk]",scope).forEach(function(b){b.remove();});
+  var checks=build(), i=0;
+  summary.hidden=true; btn.disabled=true;
+  function finish(){
+    var rec=0,agr=0,rnd=0,bad=0;
+    checks.forEach(function(c){if(!c.pass)bad++;else if(c.kind==="ok")rec++;else if(c.kind==="agree")agr++;else rnd++;});
+    var parts=[rec+" recomputed and agreed"];
+    if(agr) parts.push(agr+" agreed to my report");
+    if(rnd) parts.push(rnd+(rnd===1?" rounding difference (one cent)":" rounding differences"));
+    parts.push(bad+" not agreed");
+    summary.textContent=checks.length+" items checked: "+parts.join(", ")+". Click any tickmark to see how it was checked.";
+    summary.hidden=false; btn.disabled=false; btn.textContent="Run it again";
+  }
+  function step(){
+    if(i>=checks.length){finish();return;}
+    addTick(checks[i]); i++;
+    if(reduce) step(); else setTimeout(step,70);
+  }
+  step();
+}
+$("#run").addEventListener("click",function(){runTie($("#run"),$("#tie-summary"),buildChecks);});
+
+/* ---------- invoice lab ---------- */
+(function(){
+  var data=makeLedger(), P={win:7,limit:10000,band:5,grace:0}, ran=false, marks={};
+  var LBL={exact:"Exact duplicate",possible:"Possible duplicate",limit:"Just under limit",late:"Paid late"};
+  var PL={exact:["exact duplicate","exact duplicates"],possible:["possible duplicate","possible duplicates"],limit:["just under the limit","just under the limit"],late:["paid late","paid late"]};
+  var list=$("#inv"), score=$("#lab-score"), tieSum=$("#lab-tie-summary");
+  function money(v){return "$"+nf(v,2);}
+  function dl(r){return Math.round((msd(r.paid)-msd(r.due))/864e5);}
+  function mk(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+  var head=mk("li","head"); head.setAttribute("aria-hidden","true");
+  head.appendChild(mk("span")); head.appendChild(mk("span",null,"Vendor and invoice")); head.appendChild(mk("span","amt","Amount")); head.appendChild(mk("span","paid","Payment"));
+  list.appendChild(head);
+  var lis=data.map(function(r){
+    var li=mk("li"); li.setAttribute("data-id",r.id); li.setAttribute("data-due",r.due); li.setAttribute("data-paid",r.paid);
+    var b=mk("button","mk","?"); b.type="button"; b.setAttribute("aria-pressed","false");
+    b.setAttribute("aria-label","Mark invoice "+r.inv+" from "+r.vendor+" as suspicious");
+    b.addEventListener("click",function(){marks[r.id]=!marks[r.id];refresh();});
+    var main=mk("div","main"); main.appendChild(mk("b",null,r.vendor));
+    var sm=mk("small"); sm.appendChild(mk("span","v",r.inv)); sm.appendChild(document.createTextNode(" · ")); sm.appendChild(mk("span","dt",r.date)); main.appendChild(sm);
+    var am=mk("div","amt"); am.appendChild(mk("span","v",money(r.amount)));
+    var d=dl(r), pd=mk("div","paid");
+    pd.appendChild(mk("span","v"+(d>0?" neg":""), d>0?d+(d===1?" day late":" days late"):d===0?"on the due date":(-d)+(d===-1?" day early":" days early")));
+    li.appendChild(b); li.appendChild(main); li.appendChild(am); li.appendChild(pd); li.appendChild(mk("div","fl"));
+    list.appendChild(li); return li;
+  });
+  function refresh(){
+    $$("[data-tk]",$("#v-lab")).forEach(function(x){x.remove();}); closeTk(); tieSum.hidden=true;
+    var F=ran?findings(data,P):[], flags={}, fids={}, nMarks=0, byId={};
+    data.forEach(function(r){byId[r.id]=r;});
+    F.forEach(function(f){f.ids.forEach(function(id){fids[id]=1;var a=(flags[id]=flags[id]||[]);if(a.indexOf(f.type)<0)a.push(f.type);});});
+    data.forEach(function(r,i){
+      var li=lis[i], on=!!marks[r.id], fl=$(".fl",li);
+      if(on) nMarks++;
+      $(".mk",li).setAttribute("aria-pressed",String(on)); li.classList.toggle("marked",on); li.classList.toggle("hit",!!fids[r.id]);
+      fl.textContent="";
+      (flags[r.id]||[]).forEach(function(t){fl.appendChild(mk("span","fchip "+t,LBL[t]));});
+      if(fids[r.id]) fl.appendChild(mk("span","pen"+(on?"":" red"),on?"you caught it":"you missed it"));
+    });
+    var total=r2(data.reduce(function(a,r){return a+r.amount;},0)), ids=Object.keys(fids);
+    var fval=r2(ids.reduce(function(a,id){return a+byId[id].amount;},0));
+    $("#s-count").textContent=String(data.length); $("#s-total").textContent=money(total);
+    $("#s-fcount").textContent=ran?String(ids.length):"Run the checks";
+    $("#s-fval").textContent=ran?money(fval):"Run the checks";
+    $("#s-share").textContent=ran?(fval/total*100).toFixed(1)+"%":"Run the checks";
+    if(!ran){
+      score.textContent=nMarks===0?"Mark any invoice you think is wrong, then run the checks.":"You've marked "+nMarks+(nMarks===1?" invoice":" invoices")+". Run the checks to see how you did.";
+      return;
+    }
+    var caught=F.filter(function(f){return f.ids.some(function(id){return marks[id];});});
+    var missed=F.filter(function(f){return !f.ids.some(function(id){return marks[id];});});
+    var mc={}; missed.forEach(function(f){mc[f.type]=(mc[f.type]||0)+1;});
+    var parts=Object.keys(mc).map(function(t){return mc[t]+" "+PL[t][mc[t]>1?1:0];});
+    var fa=Object.keys(marks).filter(function(id){return marks[id]&&!fids[id];}).length;
+    score.textContent="You marked "+nMarks+". The checks made "+F.length+" findings and you caught "+caught.length+". "+
+      (missed.length?"You missed: "+parts.join(", ")+". ":"You missed none. ")+
+      (fa?fa+(fa===1?" of your marks wasn't":" of your marks weren't")+" flagged. A flag is a lead for a person to check, not proof of an error, so those may still deserve a look.":"");
+  }
+  function bindRange(id,outId,key,fmt){
+    var el=$("#"+id), o=$("#"+outId);
+    function f(){P[key]=+el.value;o.textContent=fmt(+el.value);}
+    el.addEventListener("input",function(){f();refresh();}); f();
+  }
+  bindRange("p-win","o-win","win",function(v){return v+(v===1?" day":" days");});
+  bindRange("p-band","o-band","band",function(v){return v+"%";});
+  bindRange("p-grace","o-grace","grace",function(v){return v+(v===1?" day":" days");});
+  $("#p-limit").addEventListener("change",function(){P.limit=+this.value;refresh();});
+  $("#lab-run").addEventListener("click",function(){ran=true;refresh();});
+  $("#lab-reset").addEventListener("click",function(){marks={};ran=false;refresh();});
+
+  function labChecks(){
+    var out=[], items=$$("#inv li[data-id]");
+    function amtOf(li){return num($(".amt .v",li).textContent.replace("$",""));}
+    function m(v){return "$"+nf(v,2);}
+    var total=r2(items.reduce(function(a,li){return a+amtOf(li);},0));
+    var hit=items.filter(function(li){return li.classList.contains("hit");});
+    var fval=r2(hit.reduce(function(a,li){return a+amtOf(li);},0));
+    var sC=$("#s-count"), sT=$("#s-total"), sFC=$("#s-fcount"), sFV=$("#s-fval"), sS=$("#s-share");
+    out.push({el:sC.parentNode,kind:"ok",pass:items.length===parseInt(sC.textContent,10),title:"Footed",msg:"Counted "+items.length+" invoice rows in the list. The schedule says "+sC.textContent+"."});
+    out.push({el:sT.parentNode,kind:"ok",pass:m(total)===sT.textContent,title:"Footed",msg:"The invoice amounts in the list add to "+m(total)+". The schedule says "+sT.textContent+"."});
+    out.push({el:sFC.parentNode,kind:"ok",pass:hit.length===parseInt(sFC.textContent,10),title:"Footed",msg:"Counted "+hit.length+" highlighted invoices. The schedule says "+sFC.textContent+"."});
+    out.push({el:sFV.parentNode,kind:"ok",pass:m(fval)===sFV.textContent,title:"Footed",msg:"The highlighted invoices add to "+m(fval)+". The schedule says "+sFV.textContent+"."});
+    var sh=(fval/total*100).toFixed(1)+"%";
+    out.push({el:sS.parentNode,kind:"ok",pass:sh===sS.textContent,title:"Recomputed",msg:m(fval)+" ÷ "+m(total)+" = "+sh+". The schedule says "+sS.textContent+"."});
+    function row(id){return $('#inv li[data-id="'+id+'"]');}
+    findings(data,P).forEach(function(f){
+      var A=row(f.ids[0]), B=f.ids[1]?row(f.ids[1]):null;
+      if(f.type==="exact"||f.type==="possible"){
+        var va=$(".main b",A).textContent, vb=$(".main b",B).textContent, ia=$(".main .v",A).textContent, ib=$(".main .v",B).textContent;
+        var aa=$(".amt .v",A).textContent, ab=$(".amt .v",B).textContent;
+        if(f.type==="exact"){
+          out.push({el:$(".main .v",A),kind:"ok",pass:va===vb&&ia===ib&&aa===ab,title:"Recomputed",msg:"Both rows read: "+va+", invoice "+ia+", "+aa+". Same vendor, number and amount."});
+        } else {
+          var gap=Math.abs(msd($(".dt",A).textContent)-msd($(".dt",B).textContent))/864e5;
+          out.push({el:$(".main .v",A),kind:"ok",pass:va===vb&&aa===ab&&ia!==ib&&gap<=P.win,title:"Recomputed",msg:va+", "+aa+" on both rows, under different invoice numbers ("+ia+" and "+ib+"), dated "+gap+(gap===1?" day":" days")+" apart. Your window is "+P.win+(P.win===1?" day.":" days.")});
+        }
+      } else if(f.type==="limit"){
+        var amt=amtOf(A), lo=P.limit*(1-P.band/100);
+        out.push({el:$(".amt .v",A),kind:"ok",pass:amt>=lo&&amt<P.limit,title:"Recomputed",msg:m(amt)+" is below the "+m(P.limit)+" limit and within "+P.band+"% of it (from "+m(lo)+")."});
+      } else if(f.type==="late"){
+        var due=A.getAttribute("data-due"), paid=A.getAttribute("data-paid"), days=Math.round((msd(paid)-msd(due))/864e5);
+        out.push({el:$(".paid .v",A),kind:"ok",pass:days>P.grace,title:"Recomputed",msg:"Due "+due+", paid "+paid+": "+days+(days===1?" day":" days")+" late. Your grace period is "+P.grace+(P.grace===1?" day.":" days.")});
+      }
+    });
+    return out;
+  }
+  $("#lab-tie").addEventListener("click",function(){
+    if(!ran){ran=true;refresh();}
+    runTie($("#lab-tie"),tieSum,labChecks);
+  });
+  refresh();
+})();
+
+/* ---------- evidence filter ---------- */
+(function(){
+  var btns=$$("[data-filter]"), trs=$$("#v-evidence tbody tr");
+  btns.forEach(function(b){
+    b.addEventListener("click",function(){
+      btns.forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});
+      var f=b.getAttribute("data-filter"), shown=0;
+      trs.forEach(function(tr){
+        var ok=f==="all"||(" "+tr.getAttribute("data-cat")+" ").indexOf(" "+f+" ")>=0;
+        tr.hidden=!ok; if(ok) shown++;
+      });
+      $("#ev-count").textContent="Showing "+shown+" of "+trs.length+" skills.";
+    });
+  });
+})();
+
+/* ---------- home: pick up the pen ---------- */
+(function(){
+  var home=$(".home"), layer=$("#pen-layer"), btn=$("#pen"), clr=$("#pen-clear"), on=false;
+  function set(v){
+    on=v; btn.setAttribute("aria-pressed",String(v));
+    btn.textContent=v?"Put the pen down":"Pick up the pen";
+    home.classList.toggle("penmode",v);
+  }
+  penOff=function(){set(false);};
+  btn.addEventListener("click",function(){set(!on);});
+  clr.addEventListener("click",function(){layer.textContent="";clr.hidden=true;});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&on) set(false);});
+  home.addEventListener("click",function(e){
+    if(!on||e.target.closest("button,a")) return;
+    var r=home.getBoundingClientRect(), x=Math.round(e.clientX-r.left), y=Math.round(e.clientY-r.top);
+    var rot=Math.round(Math.random()*24-12), sc=(0.8+Math.random()*0.6).toFixed(2);
+    layer.insertAdjacentHTML("beforeend",'<svg class="pstamp" style="left:'+x+'px;top:'+y+'px;transform:rotate('+rot+'deg) scale('+sc+')" viewBox="0 0 60 50" fill="none" stroke="#B91F18" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 28 L22 43 L54 6"/></svg>');
+    while(layer.children.length>60) layer.removeChild(layer.firstChild);
+    clr.hidden=false;
+  });
+})();
+
+/* ---------- sign-off ---------- */
+var rev=$("#rev"), revName=$("#rev-name"), revDate=$("#rev-date");
+rev.addEventListener("input",function(){
+  var n=rev.value.trim();
+  revName.textContent=n;
+  revDate.textContent=n?new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"}):"";
+});
+
+
+/* case-file filters */
+(function(){
+  var bar=document.getElementById("cfilters"); if(!bar) return;
+  var cards=[].slice.call(document.querySelectorAll(".ccard")), out=document.getElementById("ccount");
+  bar.addEventListener("click",function(e){
+    var b=e.target.closest("button[data-f]"); if(!b) return;
+    var f=b.getAttribute("data-f"), n=0;
+    [].forEach.call(bar.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",String(x===b));});
+    cards.forEach(function(c){var show=f==="all"||c.getAttribute("data-cats").split(" ").indexOf(f)>-1;c.hidden=!show;if(show)n++;});
+    out.textContent="Showing "+n+" of "+cards.length+" case file"+(cards.length===1?"":"s")+".";
+  });
+})();
+
+/* gentle reveals, scroll progress and a little parallax */
+(function(){
+  var calm=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var prog=document.getElementById("prog");
+  function bar(){var h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(h>0?Math.min(100,scrollY/h*100):0)+"%";}
+  addEventListener("scroll",bar,{passive:true});addEventListener("resize",bar);addEventListener("hashchange",function(){setTimeout(bar,50);});bar();
+  if(calm) return;
+  var sel=".index li,.ccard,.skr,.find,.job,.learned,.tune,.sched,.cfig,.hdrstrip,.legend-top,.synth,.vbody>h2,.vbody>.lede,.sign,.filters,.steps";
+  var els=[].slice.call(document.querySelectorAll(sel));
+  var io="IntersectionObserver" in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.05}):null;
+  els.forEach(function(el){
+    var sibs=[].filter.call(el.parentNode.children,function(c){return c.matches(sel);});
+    el.style.transitionDelay=((sibs.indexOf(el)%4)*70)+"ms";
+    el.classList.add("rv"); if(io) io.observe(el); else el.classList.add("in");
+  });
+  var cv=document.querySelector("#v-home .cover"), rc=document.getElementById("rc");
+  if(cv&&rc&&matchMedia("(pointer:fine)").matches){
+    cv.addEventListener("mousemove",function(e){var r=cv.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5;rc.style.rotate=(x*-5)+"deg";});
+    cv.addEventListener("mouseleave",function(){rc.style.rotate="0deg";});
+  }
+})();
+
+/* strings and dragging on the case-file board */
+(function(){
+  var board=document.getElementById("cboard"), svg=document.getElementById("cstr"); if(!board) return;
+  var NS="http://www.w3.org/2000/svg", skr=document.getElementById("skr");
+  var cards=[].slice.call(board.querySelectorAll(".ccard,.skr")), hotId=null, mq=matchMedia("(min-width:861px)");
+  function anchor(el){var b=board.getBoundingClientRect(),r=el.querySelector(".cpin").getBoundingClientRect();return {x:r.left-b.left+r.width/2,y:r.top-b.top+r.height/2};}
+  function draw(){
+    svg.innerHTML=""; if(!mq.matches) return;
+    var b=board.getBoundingClientRect(); svg.setAttribute("viewBox","0 0 "+b.width+" "+b.height);
+    var to=anchor(skr);
+    cards.forEach(function(c){
+      if(c===skr||c.hidden||c.offsetParent===null) return;
+      var a=anchor(c), p=document.createElementNS(NS,"path");
+      p.setAttribute("d","M"+a.x+","+a.y+" Q"+((a.x+to.x)/2)+","+(Math.max(a.y,to.y)+40)+" "+to.x+","+to.y);
+      var hot=hotId&&(c.dataset.id===hotId||hotId==="skr");
+      p.setAttribute("class","cstr"+(hotId?(hot?" hot":" dim"):"")); svg.appendChild(p);
+    });
+  }
+  function hot(id){
+    hotId=id; draw();
+    [].forEach.call(board.querySelectorAll(".sk"),function(s){s.classList.toggle("hot",!!id&&id!=="skr"&&s.dataset["for"].split(" ").indexOf(id)>-1);});
+  }
+  cards.forEach(function(c){
+    c.addEventListener("pointerenter",function(){hot(c.dataset.id);});c.addEventListener("pointerleave",function(){hot(null);});
+    c.addEventListener("focusin",function(){hot(c.dataset.id);});c.addEventListener("focusout",function(){hot(null);});
+    var sx,sy,ox=0,oy=0,down=false;
+    c.addEventListener("pointerdown",function(e){
+      if(!mq.matches||e.button>0||e.target.closest("a,button")) return;
+      down=true;sx=e.clientX;sy=e.clientY;c.setPointerCapture(e.pointerId);c.classList.add("drag");
+    });
+    c.addEventListener("pointermove",function(e){if(!down) return;c.style.translate=(ox+e.clientX-sx)+"px "+(oy+e.clientY-sy)+"px";draw();});
+    function up(){if(!down) return;down=false;c.classList.remove("drag");var m=(c.style.translate||"").split(" ");ox=parseFloat(m[0])||0;oy=parseFloat(m[1])||0;}
+    c.addEventListener("pointerup",up);c.addEventListener("pointercancel",up);
+  });
+  function mode(){document.documentElement.classList.toggle("can-drag",mq.matches);draw();}
+  mq.addEventListener?mq.addEventListener("change",mode):mq.addListener(mode);
+  addEventListener("resize",draw); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(draw);
+  if("ResizeObserver" in window) new ResizeObserver(draw).observe(board);
+  document.getElementById("cfilters").addEventListener("click",function(){setTimeout(draw,30);});
+  addEventListener("hashchange",function(){setTimeout(draw,80);});
+  mode(); setTimeout(draw,300);
+})();
+
+/* sign-off: email me when someone signs (Formspree) */
+var FORMSPREE_URL="https://formspree.io/f/mrpppbyl"; /* paste your Formspree form URL here, e.g. https://formspree.io/f/abcdwxyz */
+(function(){
+  var form=document.getElementById("signform"); if(!form||!FORMSPREE_URL) return;
+  var box=document.getElementById("send-box"), fine=document.getElementById("sign-fine"), btn=document.getElementById("send-btn"), msg=document.getElementById("sent");
+  box.hidden=false;
+  fine.textContent="When you press Sign and send, your name and anything you add is emailed to me. It is not published or shared.";
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var name=document.getElementById("rev").value.trim();
+    if(!name){msg.hidden=false;msg.className="sent err";msg.textContent="Please type your name first.";return;}
+    btn.disabled=true;btn.textContent="Sending...";
+    fetch(FORMSPREE_URL,{method:"POST",body:new FormData(form),headers:{"Accept":"application/json"}})
+      .then(function(r){
+        if(!r.ok) throw new Error("bad");
+        msg.hidden=false;msg.className="sent";msg.textContent="Thank you, "+name+". I got it.";
+        form.reset();document.getElementById("rev-name").textContent=name;
+        btn.textContent="Sent";
+      })
+      .catch(function(){
+        msg.hidden=false;msg.className="sent err";msg.textContent="That didn't send. You can email me directly instead.";
+        btn.disabled=false;btn.textContent="Sign and send";
+      });
+  });
+})();
+route(false);
+})();
+</script>
+</body>
+</html>
